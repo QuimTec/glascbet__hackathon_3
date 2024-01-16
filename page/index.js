@@ -28,8 +28,8 @@ function calcularGanho() {
   var quantiaInput = document.getElementById("quantia");
   var ganhoInput = document.getElementById("ganho");
 
-  var quantia = parseFloat(quantiaInput.value);
-  var odd = parseFloat(quantiaInput.getAttribute("data-odd"));
+  var quantia = parseInt(quantiaInput.value); 
+  var odd = parseInt(quantiaInput.getAttribute("data-odd"));
 
   // Verifica se a quantia é um número e não ultrapassa 10000
   if (!isNaN(quantia) && quantia <= 10000) {
