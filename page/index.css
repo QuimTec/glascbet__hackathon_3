@@ -2,6 +2,8 @@
 @import url(../styles/inter.css);
 @import url(../blocks/navbar.css);
 @import url(../blocks/header.css);
+@import url(../blocks/quadro-apostas.css);
+
 .page {
     margin: 0 auto;
     font-family: "Inter", Arial, sans-serif;
