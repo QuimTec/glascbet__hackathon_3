@@ -1,0 +1,84 @@
+.quadro-apostas {
+}
+
+.quadro-apostas_titulo {
+  text-shadow: 0 4px 18px #5681b0;
+  color: #eaf4f6;
+  justify-content: center;
+  display: flex;
+  font-family: Inter;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 44px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 46px;
+}
+
+.apostas {
+  list-style: none;
+}
+
+.apostas_card {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  background: var(--background, #010a13);
+  margin: 10px auto 0;
+  align-items: center;
+  padding: 27px 50px;
+}
+
+.apostas_card__titulo {
+  color: var(--boto-ativo, #0397ab);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  /* margin-left: 50px; */
+}
+
+.apostas_card__subtitulo {
+  color: #f7f7f7;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.apostas_card__opcao {
+  /* max-width: 307px; */
+  width: 20%;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  color: var(--corclara, #eaf4f6);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  border: none;
+}
+
+.apostas_card__vs {
+  color: #fff;
+  font-family: Russo One;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.apostas_card__opcao-cinza {
+  background-color: #a09b8c;
+}
+
+.apostas_card__opcao-azul {
+  background-color: #0397ab;
+  box-shadow: 0px 4px 18px 0px #5681b0;
+}

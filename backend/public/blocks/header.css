@@ -1,0 +1,35 @@
+.background {
+  max-width: fit-content;
+}
+
+.header {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 50px 35px;
+  margin: 0;
+  background: linear-gradient(#1e282d, #1e282d33);
+}
+
+.logo {
+  width: 252px;
+  height: 56px;
+}
+
+.header_info-user {
+  display: flex;
+  align-items: center;
+}
+
+.header_cash-user { 
+  margin-right: 25px;
+  background-color: rgba(160, 155, 140, 0.2);
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  padding: 7px;
+  border: none;
+}
