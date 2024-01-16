@@ -76,9 +76,26 @@
           
             <button class="button" onclick="login()">Entrar</button>
           </div>
-          
         </div>
       </div>
+
+            <!-- Modal de Aposta -->
+      <div id="modalAposta" class="modal_aposta">
+        <div class="modal-aposta-content">
+          <span class="close">&times;</span>
+          <h2>Apostar</h2>
+          <p class="aposta__type"></p>
+          <p class="aposta__league"></p>
+          <label for="quantia">Quantia:</label>
+          <input type="number" id="quantia" placeholder="Digite a quantia" max="10000" required>
+          <label for="ganho">Ganho:</label>
+          <input type="text" id="ganho" readonly>
+          <button id="confirmarAposta">Confirmar Aposta</button>
+          <button id="depositar">Depositar Dinheiro</button>
+        </div>
+      </div>
+
+
     </section>
     <script src="./page/index.js"></script>
   </body>

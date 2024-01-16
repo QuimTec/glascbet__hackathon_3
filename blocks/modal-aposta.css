@@ -1,0 +1,42 @@
+.modal_aposta {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px; 
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-aposta-content {
+    background-color: #010A13;
+    color: #EAF4F6;
+    font-size: 20px;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(3, 151, 171, 0.5);
+    position: relative;
+    width: 100%; 
+    max-width: 400px; 
+    margin: auto; 
+}
+
+#confirmarAposta,
+#depositar {
+    width: 100%; 
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#confirmarAposta:hover,
+#depositar:hover {
+    background-color: #45a049;
+}
+
+  

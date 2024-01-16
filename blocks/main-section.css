@@ -5,6 +5,8 @@
     color: #EAF4F6;
     text-align: center;
     font-family: Inter;
+    /* nao sao todos navs que aceitam */
+    background-attachment: fixed; 
 }
 .main__title{
     font-size: 36px;
