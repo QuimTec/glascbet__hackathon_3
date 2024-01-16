@@ -1,0 +1,105 @@
+.main-section {
+    padding-top: 200px;
+    background: url("../images/background.png") center/cover; 
+    height: 100vh;
+    color: #EAF4F6;
+    text-align: center;
+    font-family: Inter;
+    /* nao sao todos navs que aceitam */
+    background-attachment: fixed; 
+}
+.main__title{
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.apostas {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.aposta-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px 60px;
+    margin-bottom: 20px;
+    flex: 1; 
+    max-width: 80%; 
+    margin: 10px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .aposta-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    align-items: baseline;
+  }
+  .aposta__type {
+    font-size: 24px;
+    font-weight: 700;
+}
+.aposta__league {
+    color: #0397AB;
+    font-size: 24px;
+    font-weight: 700;
+}
+  .aposta-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+  }
+  
+  .time-btn {
+    padding: 10px 80px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #EAF4F6;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 700;
+  }
+  .time-btn:hover {
+    background-color: #0397AB;
+  }
+  
+  .odd {
+    margin-top: 5px;
+    font-size: 24px;
+  }
+  
+  .vs {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+/* Quando a largura da tela for menor que 768px */
+@media (max-width: 768px) {
+    .main-section {
+        padding-top: 100px;
+    }
+
+    .aposta-card {
+        padding: 15px 30px;
+    }
+
+    .aposta-options {
+        width: 100%;
+    }
+
+    .time-btn {
+        padding: 10px 40px;
+    }
+}
