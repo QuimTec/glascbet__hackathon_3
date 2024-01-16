@@ -1,8 +1,9 @@
 @import url(../styles/normalize.css);
 @import url(../styles/inter.css);
 @import url(../blocks/navbar.css);
-@import url(../blocks/header.css);
-@import url(../blocks/quadro-apostas.css);
+@import url(../blocks/main-section.css);
+@import url(../blocks/modal.css);
+@import url(../blocks/modal-aposta.css);
 
 .page {
     margin: 0 auto;
