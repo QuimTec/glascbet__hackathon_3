@@ -26,6 +26,7 @@ app.get("/", function(require, response){
 //Criar usuarios
 app.post("/usuario",function(require,response){
   var obj = require.body;
+  console.log(obj);
   db.addUsuario(obj, function(error){
       if(error){
           response.json(error);
@@ -125,8 +126,9 @@ app.get("/saldo",verifyJWT, function(req, res, next){
       if(error){
           res.json(error);
       }else{
-          console.log(rows);
-          res.json(rows);
+          console.log(rows[0].saldo);
+          res.json(rows[0].saldo);
+          
       }
   })
 });
