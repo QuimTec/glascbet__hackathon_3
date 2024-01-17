@@ -1,24 +1,29 @@
-import Modal from "./Modal.js"
+import Modal from "./Modal.js";
 import ModalApostas from "./ModalApostas.js";
 
-
-const timeButton = document.querySelector(".time-btn")
+const timeButton = document.querySelector(".time-btn");
 const odd = timeButton.getAttribute("data-odd");
 // Abre e fecha o modal de apostas
 
 const modalApostas = new ModalApostas({
   odd: odd,
-  modalSelector: ".modal_aposta"});
-  modalApostas.setInputValues()
-// modalApostas.addEventListener("input", ()=>{setEventListener()});
+  modalSelector: ".modal_aposta",
+});
+modalApostas.setInputValues();
 
-// function openModal() {
-//     document.getElementById('modal').style.display = 'flex';
-// }
+// Modal do Usuário
+const modalUser = new Modal(".modal_user", ".button__profile");
+modalUser.setEventListeners();
+
+// const buttonProfile = document.querySelector(".button__profile");
+// buttonProfile.addEventListener("click", openModal)
+function openModal() {
+    document.getElementById('modal').style.display = 'flex';
+}
 
 // Função para fechar o modal
-function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
 }
 
 // Abre o modal automaticamente quando a página é carregada
@@ -66,4 +71,3 @@ function abrirModalDeposito() {
 
   // Adicione lógica adicional para abrir o modal de depósito aqui
 }
-

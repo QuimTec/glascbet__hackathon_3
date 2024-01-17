@@ -99,14 +99,14 @@
 
 <!-- Modal do Usuário -->
 <div id="modalUser" class="modal modal_user">
-  <div class="modal-user-content">
+  <div class="modal-content modal-content-user">
     <span class="close">&times;</span>
     <img src="./images/UserImage.png" alt="Foto do usuário" class="userImage">
     <form class="user__form">
       <input type="text" class="apelido" id="apelido" placeholder="Apelido" required>
-        <input type="text" class="cpf" id="cpf" placeholder="CPF">
-        <input type="number" class="saldo-total" id="saldo-total" placeholder="Saldo Total">
-        <input type="number" class="saldo-total" id="saldo-total" placeholder="Total acumulado">
+        <input type="number" class="cpf" placeholder="CPF">
+        <input type="number" class="saldo-total" id="saldo-total" placeholder="Saldo Total" readonly>
+        <input type="number" class="saldo-total" id="saldo-acumulado" placeholder="Total acumulado" readonly>
         <input type="text" class="skins" list="skins" placeholder="Escolha sua skin">
         <datalist id="skins">
           <option value="Ahri">Florescer Espiritual - Ahri</option>
@@ -118,17 +118,54 @@
           <option value="Yasuo">Emissários da Luz - Yasuo</option>
           <option value="Riven">Emissários da Luz - Riven</option>
         </datalist>
-      
-
-
-
   </form>
-    <button id="confirmarAposta">Confirmar Aposta</button>
-    <button id="depositar">Depositar Dinheiro</button>
+    <button class="button button__depositar">Depositar</button>
+    <button class="button  button__retirar">Retirar $</button>
+    <button class="button button__solicitar" disabled>Solicitar Skin</button>
+    <p class="aviso">Solicite sua skin gratuita a partir de um saldo acumulado de R$500,00 </p>
   </div>
 </div>
 
+<footer class="footer">
+           <img
+          class="logo"
+          src="./images/Logo.svg"
+          alt="Logo"
+        />
+      
+      <div class="copyrights">&#169; 2024 Quimtec. Todos os direitos reservados.</div>
 
+    <img class="footer_18" src="./images/icon__18.png">
+    <ul class="footer_avisos">
+        <li class="footer_avisos-termos opacity">
+          <a href="#" class="footer_avisos-termos-link">Termos de uso</a>
+        </li>
+        <li class="footer_avisos-privacidade opacity">
+          <a href="#" class="footer_avisos-termos-link">Aviso de privacidade</a>
+        </li>
+      </ul>
+
+    <div class="footer_content_social">
+        <button class="footer__column-link opacity">
+          <img
+            class="footer__social-icons"
+            alt="Logo Facebook"
+            src="./images/facebook_white.svg"
+          />
+          <a href="#" class="footer__column-link opacity"></a>
+        </button>
+        <button class="footer__column-link opacity">
+          <img
+            class="footer__social-icons"
+            alt="Logo Instagram"
+            src="./images/instagram_white.svg"
+          />
+          <a href="#" class="footer__column-link opacity"></a>
+        </button>
+      </ul>
+    </div>
+  </div>
+</footer>
     </section>
     <script type="module" src="./page/index.js"></script>
   </body>
