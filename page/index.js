@@ -1,75 +1,39 @@
 //Vamos fazer o Initial Modal de login unico, e o resto dos modais serão extends(filhos)>>>>>>>>
 import Modal from "../components/Modal.js";
 import ModalApostas from "../components/ModalApostas.js";
+import DepositoModal from "../components/ModalDeposito.js";
+import Api from "../components/API.js";
 
-const timeButton = document.querySelector(".time-btn");
-const odd = timeButton.getAttribute("data-odd");
-// Abre e fecha o modal de apostas
+// // Exemplo de uso ModalAposta
+// const modal = new Modal('modalAposta');
+// modal.addInput('inputAposta');
+// modal.addCloseEventListener();
+// modal.open();
 
-const modalApostas = new ModalApostas({
-  odd: odd,
-  modalSelector: ".modal_aposta",
+//>>>>>Aposta>>>>>
+const apostaModal = new ApostaModal();
+apostaModal.addInput('inputApostaEspecifica');
+apostaModal.addCloseEventListener();
+apostaModal.open();
+
+//>>>>>deposito>>>>>
+const depositoModal = new DepositoModal();
+depositoModal.addInput('inputDepositoEspecifica');
+depositoModal.addCloseEventListener();
+depositoModal.open();
+
+//>>>>>API>>>>>
+Api.fazerRequisicao().then(dados => console.log(dados));
+
+document.addEventListener('DOMContentLoaded', () => {
+  const apostaModal = new ApostaModal();
+  apostaModal.addInput('inputApostaEspecifica');
+  apostaModal.addCloseEventListener();
+
+  const depositoModal = new DepositoModal();
+  depositoModal.addInput('inputDepositoEspecifica');
+  depositoModal.addCloseEventListener();
+
+  const apiData = Api.fazerRequisicao();
+  apiData.then(dados => console.log(dados));
 });
-modalApostas.setInputValues();
-
-// Modal do Usuário
-const modalUser = new Modal(".modal_user", ".button__profile");
-modalUser.setEventListeners();
-
-// const buttonProfile = document.querySelector(".button__profile");
-// buttonProfile.addEventListener("click", openModal)
-function openModal() {
-    document.getElementById('modal').style.display = 'flex';
-}
-
-// Função para fechar o modal
-function closeModal(){
-  document.getElementById("modal").style.display = "none";
-}
-
-// Abre o modal automaticamente quando a página é carregada
-// window.onload = openModal;
-
-//MODAL APOSTA>>>>>>>>>>>>
-// Função para exibir o modal de aposta
-// function abrirModalAposta() {
-//   var modalAposta = document.getElementById("modalAposta");
-//   modalAposta.style.display = "block";
-// }
-
-// Função para fechar o modal de aposta
-// function fecharModalAposta() {
-//   var modalAposta = document.getElementById("modalAposta");
-//   modalAposta.style.display = "none";
-// }
-
-// Função para calcular o ganho com base na quantia inserida
-function calcularGanho() {
-  var quantiaInput = document.getElementById("quantia");
-  var ganhoInput = document.getElementById("ganho");
-
-  var quantia = parseFloat(quantiaInput.value);
-  var odd = parseFloat(quantiaInput.getAttribute("data-odd"));
-
-  // Verifica se a quantia é um número e não ultrapassa 10000
-  if (!isNaN(quantia) && quantia <= 10000) {
-    var ganho = quantia * odd;
-    ganhoInput.value = ganho.toFixed(2); // Formata para duas casas decimais
-  } else {
-    ganhoInput.value = "";
-  }
-}
-
-// Adiciona eventos aos elementos
-// document.getElementById("confirmarAposta").addEventListener("click", fecharModalAposta);
-// document.getElementById("depositar").addEventListener("click", abrirModalDeposito);
-// document.getElementById("quantia").addEventListener("input", calcularGanho);
-// document.querySelector(".time-btn").addEventListener("click", modal.setEventListeners);
-// document.querySelector(".close").addEventListener("click", fecharModalAposta);
-// Função para abrir o modal de depósito
-function abrirModalDeposito() {
-  fecharModalAposta(); // Fecha o modal de aposta antes de abrir o modal de depósito
-
-  // Adicione lógica adicional para abrir o modal de depósito aqui
-}
-

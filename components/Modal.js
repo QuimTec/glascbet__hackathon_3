@@ -1,33 +1,33 @@
 export default class Modal {
-    constructor(modalSelector, buttonOpenSelector) {
-        this._modal = document.querySelector(modalSelector);
-        this._buttonOpenSelector = document.querySelector(".button__profile")
-        this.close = this.close.bind(this);
-      }
-    
-      open = () => {
-        this._modal.style.display = 'flex';
-        document.addEventListener("keydown", this._handleEscClose);
-      }
-    
-      close = () => { 
-        this._modal.style.display = 'none';
-        document.removeEventListener("keydown", this._handleEscClose);
-      }
-    
-      _handleEscClose = (evt) => {
-        if (evt.key === "Escape") {
-          this.close();
-        }
-      };
-    
-      setEventListeners = () => {
-        const buttonOpen = document.querySelector(".time-btn");
-        this._buttonOpenSelector.addEventListener("click", this.open)
+  constructor(modalId) {
+    this.modal = document.getElementById(modalId);
+    this.modalContent = this.modal.querySelector('.modal-content');
+    this.closeButton = this.modal.querySelector('.close-button');
+    this.inputs = {};
+  }
 
+  setInputValue(inputId, value) {
+    this.inputs[inputId].value = value;
+  }
 
-        const buttonClose = this._modal.querySelector(".close");
-        buttonClose.addEventListener("click", this.close);    
-      }
+  getInputValue(inputId) {
+    return this.inputs[inputId].value;
+  }
 
-    }
+  open() {
+    this.modal.style.display = 'block';
+  }
+
+  close() {
+    this.modal.style.display = 'none';
+  }
+
+  addInput(inputId) {
+    const input = document.getElementById(inputId);
+    this.inputs[inputId] = input;
+  }
+
+  addCloseEventListener() {
+    this.closeButton.addEventListener('click', () => this.close());
+  }
+}
