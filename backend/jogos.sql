@@ -1,12 +1,14 @@
-
+drop table jogos;
 CREATE TABLE jogos (
-  id_jogos INT AUTO_INCREMENT PRIMARY KEY,
+  id_jogo INT AUTO_INCREMENT PRIMARY KEY,
   equipeA VARCHAR(50),
   equipeB VARCHAR(50),
   dia DATE,
   horario TIME,
   oddsA DECIMAL(10,2),
-  oddsB DECIMAL(10,2),
+  oddsB DECIMAL(10,2),  
+  encerrado BOOLEAN NOT NULL DEFAULT false,
+  equipeVencedora VARCHAR(50),
   UNIQUE KEY (equipeA, dia, horario),
   UNIQUE KEY (equipeB, dia, horario)
 );

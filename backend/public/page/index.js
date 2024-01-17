@@ -116,9 +116,7 @@ fetch(minhaRequisicao,{
       atualizarSaldo();
   }
   return response.text();
-}).then(responseText => {
-  alert("Resposta do back-end: " + responseText);
-});     
+})    
 }
 
 function getSaldoUsuario() {

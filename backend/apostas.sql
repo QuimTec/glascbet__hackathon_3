@@ -9,6 +9,7 @@ CREATE TABLE apostas (
   odds DECIMAL(10,2) NOT NULL,
   resultado VARCHAR(20) NOT NULL DEFAULT 'aberto',
   CHECK (resultado IN ('aberto', 'perdeu', 'ganhou')),
-  FOREIGN KEY (id_jogo) REFERENCES jogos (id_jogos),
+  valorPago BOOLEAN NOT NULL DEFAULT false,
+  FOREIGN KEY (id_jogo) REFERENCES jogos (id_jogo),
   FOREIGN KEY (id_user) REFERENCES usuarios (id_user)
 );

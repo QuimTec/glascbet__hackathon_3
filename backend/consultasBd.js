@@ -44,11 +44,16 @@ var tabelas = {
         return db.query("INSERT INTO jogos (equipeA, equipeB, dia, horario,oddsA,oddsB) VALUES (?,?,?,?,?,?);",[obj.equipeA, obj.equipeB,obj.dia,obj.horario,obj.oddsA,obj.oddsB], callback)
     },
 
+    //Encerrar jogos
+    encerrarJogos: function(obj, callback){
+        return db.query("UPDATE jogos SET encerrado = ?, equipeVencedora = ? WHERE id_jogo = ?;;",[true,obj.equipeVencedora,obj.id_jogo],callback) 
+    },
+
 // -------------- Tabela Apostas Realizadas -----------------------------------------
 
     //Inserir apostas
-    addAposta: function(obj, callback){  
-        return db.query("INSERT INTO apostas (id_jogos, id_user, diaAposta, horaAposta,valorAposta,oddAposta) VALUES (?,?,?,?,?,?);",[obj.id_jogos, obj.id_user,obj.data,obj.hora,obj.valor,obj.odds], callback)
+    addAposta: function(id_user,obj, callback){  
+        return db.query("INSERT INTO apostas (id_jogo, id_user,equipe, data, hora,valor,odds) VALUES (?,?,?,?,?,?,?);",[obj.id_jogo, id_user,obj.equipe,obj.data,obj.hora,obj.valor,obj.odds], callback)
     },
 
     //Buscar apostas
@@ -57,8 +62,8 @@ var tabelas = {
     },
 
     //Buscar apostas por usuário
-    getApostaUser: function(obj,callback){
-        return db.query("SELECT saldo FROM usuarios WHERE cpf = ?;", [obj], function(error, results) {
+    getApostasUser: function(obj,callback){
+        return db.query("SELECT * FROM apostas WHERE id_user = ?;", [obj], function(error, results) {
             if (error) {
                 callback(error, null);
             } else {
@@ -66,6 +71,31 @@ var tabelas = {
             }
         });
     },
+
+    //Aposta vencedora
+    encerrarApostasVencedoras: function(obj,callback){
+        return db.query("UPDATE apostas SET resultado = 'ganhou', valorPago=true WHERE id_jogo = ? AND equipe = ?;", [obj.id_jogo, obj.equipeVencedora], callback);
+    },
+
+    //Aposta perdeora
+    encerrarApostasPerdedoras: function(obj,callback){
+        return db.query("UPDATE apostas SET resultado = 'perdeu' WHERE id_jogo = ? AND equipe != ?;", [obj.id_jogo, obj.equipeVencedora], callback);
+    },
+
+    //Pagar apsotas vencedoras
+    pagarApostas: function(obj,callback){
+        return db.query("SELECT id_user, valor, odds FROM apostas WHERE id_jogo = ? AND equipe = ?;", [obj.id_jogo,obj.equipeVencedora], function(err, results) {
+            if (err) {
+                // Tratar erro, se necessário
+                console.error(err);
+                callback(err, null);
+            } else {
+                // Tratar os resultados
+                callback(null, results);
+            }
+        });
+    },
+
 }
 
 module.exports = tabelas;
