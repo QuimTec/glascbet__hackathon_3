@@ -4,8 +4,12 @@
 @import url(../blocks/main-section.css);
 @import url(../blocks/modal.css);
 @import url(../blocks/modal-aposta.css);
+<<<<<<< HEAD
 @import url(../blocks/modal-user.css);
 @import url(../blocks/footer.css);
+=======
+@import url(../blocks/modal-deposito.css);
+>>>>>>> 9ee06aa123ef35fafedda225aa6c2e09b0b1603b
 
 .page {
     margin: 0 auto;

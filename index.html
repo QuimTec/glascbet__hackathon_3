@@ -91,12 +91,13 @@
           <input type="number" class="quantia" id="quantia" placeholder="Digite a quantia" max="10000" required>
           <label for="ganho">Ganho:</label>
           <input type="number" class="ganho" id="ganho" readonly>
-        </form>
+          </form>
           <button id="confirmarAposta">Confirmar Aposta</button>
           <button id="depositar">Depositar Dinheiro</button>
         </div>
       </div>
 
+<<<<<<< HEAD
 <!-- Modal do Usuário -->
 <div id="modalUser" class="modal modal_user">
   <div class="modal-content modal-content-user">
@@ -125,6 +126,58 @@
     <p class="aviso">Solicite sua skin gratuita a partir de um saldo acumulado de R$500,00 </p>
   </div>
 </div>
+=======
+      <!-- Modal do Usuário -->
+      <div id="modalUser" class="modal modal_user">
+        <div class="modal-user-content">
+          <span class="close">&times;</span>
+          <img src="./images/UserImage.png" alt="Foto do usuário" class="userImage">
+          <form class="user__form">
+            <input type="text" class="apelido" id="apelido" placeholder="Apelido" required>
+              <input type="text" class="cpf" id="cpf" placeholder="CPF">
+              <input type="number" class="saldo-total" id="saldo-total" placeholder="Saldo Total">
+              <input type="number" class="saldo-total" id="saldo-total" placeholder="Total acumulado">
+              <input type="text" class="skins" list="skins" placeholder="Escolha sua skin">
+              <datalist id="skins">
+                <option value="Ahri">Florescer Espiritual - Ahri</option>
+                <option value="Thresh">Florescer Espiritual - Thresh</option>
+                <option value="Lilia">Florescer Espiritual - Lilia</option>
+                <option value="Yone">Florescer Espiritual - Yone</option>
+                <option value="Kindred">Florescer Espiritual - Kindred</option>
+                <option value="Soraka">Emissários da Luz - Soraka</option>
+                <option value="Yasuo">Emissários da Luz - Yasuo</option>
+                <option value="Riven">Emissários da Luz - Riven</option>
+              </datalist>
+          </form>
+        </div>
+      </div>
+
+      <!--Adicionei o modal depósito *Marina-->
+      <div id="depositModal" class="modal_deposito">
+        <div class="modal-deposito-content">
+          <span class="close" id="closeModalBtn">&times;</span>
+          <form id="depositForm">
+            <label for="address">Endereço:</label>
+            <input type="text" id="address" name="address" required>
+      
+            <label for="city">Cidade:</label>
+            <input type="text" id="city" name="city" required>
+      
+            <label for="state">Estado:</label>
+            <input type="text" id="state" name="state" required>
+      
+            <label for="paymentMethod">Forma de Pagamento:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="creditCard">Cartão de Crédito</option>
+              <option value="debitCard">Cartão de Débito</option>
+              <option value="bankTransfer">Transferência Bancária</option>
+            </select>
+      
+            <button type="button" id="confirmDepositBtn">Confirmar Depósito</button>
+          </form>
+        </div>
+      </div>
+>>>>>>> 9ee06aa123ef35fafedda225aa6c2e09b0b1603b
 
 <footer class="footer">
            <img
