@@ -85,12 +85,8 @@
     font-weight: 700;
   }
 
-/* Quando a largura da tela for menor que 768px */
-@media (max-width: 768px) {
-    .main-section {
-        padding-top: 100px;
-    }
 
+@media (max-width: 1190px) {
     .aposta-card {
         padding: 15px 30px;
     }
@@ -102,4 +98,34 @@
     .time-btn {
         padding: 10px 40px;
     }
+}
+
+@media (max-width: 560px) {
+  .main-section {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .aposta-card {
+      padding: 15px; 
+      max-width: 100%; 
+      flex-direction: column;
+  }
+
+  .aposta__type,
+  .aposta__league,
+  .odd,
+  .vs {
+      font-size: 18px; 
+  }
+
+  .aposta-options,
+  .aposta-info {
+      width: 100%;
+      text-align: center;
+  }
+
+  .time-btn {
+      padding: 10px 20px; 
+  }
 }
