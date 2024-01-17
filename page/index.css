@@ -4,6 +4,8 @@
 @import url(../blocks/main-section.css);
 @import url(../blocks/modal.css);
 @import url(../blocks/modal-aposta.css);
+@import url(../blocks/modal-user.css);
+@import url(../blocks/footer.css);
 @import url(../blocks/modal-deposito.css);
 
 .page {

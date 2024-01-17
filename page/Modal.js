@@ -1,6 +1,7 @@
 export default class Modal {
-    constructor(modalSelector) {
+    constructor(modalSelector, buttonOpenSelector) {
         this._modal = document.querySelector(modalSelector);
+        this._buttonOpenSelector = document.querySelector(".button__profile")
         this.close = this.close.bind(this);
       }
     
@@ -22,7 +23,8 @@ export default class Modal {
     
       setEventListeners = () => {
         const buttonOpen = document.querySelector(".time-btn");
-        buttonOpen.addEventListener("click", this.open)
+        this._buttonOpenSelector.addEventListener("click", this.open)
+
 
         const buttonClose = this._modal.querySelector(".close");
         buttonClose.addEventListener("click", this.close);    
