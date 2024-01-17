@@ -2,10 +2,11 @@
   display: flex;
   padding: 10px;
   background-color: #1f1f1f;
-  color: white;
+  color: #EAF4F6;
   min-height: 100px;
   align-items: center;
   justify-content: space-between;
+  font-family: Inter;
 }
 
 .footer .logo {
@@ -15,7 +16,6 @@
 
 .footer_avisos {
   list-style: none;
-  color: white;
   text-decoration: none;
 }
 
@@ -25,13 +25,6 @@
   text-decoration: none;
 }
 
-.footer__column-link {
-  list-style: none;
-  line-height: 30px;
-  font-size: 15px;
-  font-weight: normal;
-  color: white;
-}
 .footer_content_social {
   display: flex;
   flex-direction: column;
@@ -40,4 +33,11 @@
   width: 16px;
   height: 16px;
   margin-right: 10px;
+}
+
+.footer_avisos-termos-link {
+  font-size: 20px;
+  font-weight: 400;
+  color: #EAF4F6;
+  text-decoration: underline;
 }
