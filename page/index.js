@@ -1,3 +1,4 @@
+import Modal from "./Modal.js"
 import ModalApostas from "./ModalApostas.js";
 
 
@@ -9,22 +10,16 @@ const modalApostas = new ModalApostas({
   odd: odd,
   modalSelector: ".modal_aposta"});
   modalApostas.setInputValues()
-
-// Modal Usuário
-
-const buttonProfile = document.querySelector(".button__profile")
-
-buttonProfile.addEventListener("click", openModal)
 // modalApostas.addEventListener("input", ()=>{setEventListener()});
 
-function openModal() {
-    document.getElementById('modal').style.display = 'flex';
-}
-
-// // Função para fechar o modal
-// function closeModal() {
-//     document.getElementById('modal').style.display = 'none';
+// function openModal() {
+//     document.getElementById('modal').style.display = 'flex';
 // }
+
+// Função para fechar o modal
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
 
 // Abre o modal automaticamente quando a página é carregada
 // window.onload = openModal;
