@@ -8,52 +8,21 @@
   justify-content: space-between;
 }
 
-.footer__columns {
-  margin: 0 auto;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.footer__column_content_copyright {
-  flex-basis: 711px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
 .footer .logo {
   width: 183px;
   height: 35px;
 }
 
-.logo_place_footer {
-  align-self: flex-start;
-}
-
-.footer__column_content_author {
-  margin-bottom: 18px;
-  margin-left: 0px;
-  margin-top: 131px;
-  line-height: 25px;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.footer__list {
-  padding: 0;
-  margin: 0;
-}
 .footer_avisos {
   list-style: none;
   color: white;
-  margin: 0;
+  text-decoration: none;
 }
 
-.footer__column-heading {
-  line-height: 30px;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
+.footer_avisos-termos{
+  margin-top:15px;
+  color: white;
+  text-decoration: none;
 }
 
 .footer__column-link {
