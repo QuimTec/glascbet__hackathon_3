@@ -10,16 +10,20 @@
     <section class="page">
       <!--navbar-->
       <nav class="navbar">
-        <div class="logo"><img src="./images/Logo__GlascBet.png" alt="Logo GlascBet"></div>
+        <div class="logo">
+          <img src="./images/Logo__GlascBet.png" alt="Logo GlascBet" />
+        </div>
         <div class="nav-elements">
           <button class="button__money" id="moneyBtn">R$ 100,00</button>
-          <button class="button__profile" id="profileBtn"><img src="./images/UserImage.png" alt="Perfil"></button>
+          <button class="button__profile" id="profileBtn">
+            <img src="./images/UserImage.png" alt="Perfil" />
+          </button>
         </div>
       </nav>
       <!--main-section-->
       <div class="main-section">
         <!--Title-->
-        <h2 class="main__title">APOSTAS</h2>
+        <h2 class="main__title">Apostas</h2>
         <!--Grid-->
         <div class="apostas">
           <div class="aposta-card">
@@ -28,9 +32,13 @@
               <p class="aposta__league">Liga: Nome da Liga</p>
             </div>
             <div class="aposta-options">
-              <button class="time-btn" data-odd="2.5" data-time="Time A">Time A <span class="odd">2.5</span></button>
+              <button class="time-btn" data-odd="2.5" data-time="Time A">
+                Time A <span class="odd">2.5</span>
+              </button>
               <p class="vs">VS</p>
-              <button class="time-btn" data-odd="1.8" data-time="Time B">Time B <span class="odd">1.8</span></button>
+              <button class="time-btn" data-odd="1.8" data-time="Time B">
+                Time B <span class="odd">1.8</span>
+              </button>
             </div>
           </div>
         </div>
@@ -40,59 +48,113 @@
       <div id="modal" class="modal">
         <div class="modal-content">
           <div id="register-form" class="modal-form">
-            <h2>Registro</h2>
-            <label for="firstName">Nome:</label>
-            <input type="text" id="firstName" name="firstName" required>
-          
-            <label for="lastName">Sobrenome:</label>
-            <input type="text" id="lastName" name="lastName" required>
-          
-            <label for="nickname">Apelido:</label>
-            <input type="text" id="nickname" name="nickname" required>
-          
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-          
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
-          
-            <label for="dob">Data de Nascimento:</label>
-            <input type="date" id="dob" name="dob" required>
-          
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-          
+            <h2 class="modal-title">Registre-se</h2>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="Primeiro nome"
+            />
+
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Sobrenome"
+              required
+            />
+
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="Apelido"
+              required
+            />
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+              required
+            />
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Senha"
+              required
+            />
+
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              placeholder="Data de Nascimento"
+              required
+            />
+
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="000.000.000-00"
+              required
+            />
+
             <button class="button" onclick="register()">Registrar</button>
           </div>
-          
+
           <div id="login-form" class="modal-form">
-            <h2>Login</h2>
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="loginEmail" required>
-          
-            <label for="loginPassword">Senha:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required>
-          
+            <h2 class="modal-title">Login</h2>
+            <input
+              type="email"
+              id="loginEmail"
+              name="loginEmail"
+              placeholder="E-mail cadastrado"
+              required
+            />
+            <input
+              type="password"
+              id="loginPassword"
+              name="loginPassword"
+              placeholder="Senha"
+              required
+            />
+
             <button class="button" onclick="login()">Entrar</button>
           </div>
         </div>
       </div>
 
-            <!-- Modal de Aposta -->
+      <!-- Modal de Aposta -->
       <div id="modalAposta" class="modal modal_aposta">
         <div class="modal-aposta-content">
           <span class="close">&times;</span>
-          <h2>Apostar</h2>
+          <h2 class="modal-title">Apostar</h2>
           <p class="aposta__type"></p>
           <p class="aposta__league"></p>
           <form class="aposta__form">
-          <label for="quantia">Quantia:</label>
-          <input type="number" class="quantia" id="quantia" placeholder="Digite a quantia" max="10000" required>
-          <label for="ganho">Ganho:</label>
-          <input type="number" class="ganho" id="ganho" readonly>
+            <label for="quantia">Quantia</label>
+            <input
+              type="number"
+              class="quantia"
+              id="quantia"
+              placeholder="Digite a quantia"
+              max="10000"
+              required
+            />
+            <label for="ganho">Ganhos</label>
+            <input type="number" class="ganho" id="ganho" readonly />
           </form>
-          <button id="confirmarAposta">Confirmar Aposta</button>
-          <button id="depositar">Depositar Dinheiro</button>
+          <div class="buttons">
+            <button class="button" id="confirmarAposta">
+              Confirmar Aposta
+            </button>
+            <button class="button" id="depositar">Depositar Dinheiro</button>
+          </div>
         </div>
       </div>
 
@@ -100,28 +162,59 @@
       <div id="modalUser" class="modal modal_user">
         <div class="modal-content modal-content-user">
           <span class="close">&times;</span>
-          <img src="./images/UserImage.png" alt="Foto do usuário" class="userImage">
+          <img
+            src="./images/UserImage.png"
+            alt="Foto do usuário"
+            class="userImage"
+          />
           <form class="user__form">
-            <input type="text" class="apelido" id="apelido" placeholder="Apelido" required>
-              <input type="number" class="cpf" placeholder="CPF">
-              <input type="number" class="saldo-total" id="saldo-total" placeholder="Saldo Total" readonly>
-              <input type="number" class="saldo-total" id="saldo-acumulado" placeholder="Total acumulado" readonly>
-              <input type="text" class="skins" list="skins" placeholder="Escolha sua skin">
-              <datalist id="skins">
-                <option value="Ahri">Florescer Espiritual - Ahri</option>
-                <option value="Thresh">Florescer Espiritual - Thresh</option>
-                <option value="Lilia">Florescer Espiritual - Lilia</option>
-                <option value="Yone">Florescer Espiritual - Yone</option>
-                <option value="Kindred">Florescer Espiritual - Kindred</option>
-                <option value="Soraka">Emissários da Luz - Soraka</option>
-                <option value="Yasuo">Emissários da Luz - Yasuo</option>
-                <option value="Riven">Emissários da Luz - Riven</option>
-              </datalist>
-        </form>
+            <input
+              type="text"
+              class="apelido"
+              id="apelido"
+              placeholder="Apelido"
+              required
+            />
+            <input type="number" class="cpf" placeholder="CPF" />
+            <input
+              type="number"
+              class="saldo-total"
+              id="saldo-total"
+              placeholder="Saldo Total"
+              readonly
+            />
+            <input
+              type="number"
+              class="saldo-total"
+              id="saldo-acumulado"
+              placeholder="Total acumulado"
+              readonly
+            />
+            <input
+              type="text"
+              class="skins"
+              list="skins"
+              placeholder="Escolha sua skin"
+            />
+            <datalist id="skins">
+              <option value="Ahri">Florescer Espiritual - Ahri</option>
+              <option value="Thresh">Florescer Espiritual - Thresh</option>
+              <option value="Lilia">Florescer Espiritual - Lilia</option>
+              <option value="Yone">Florescer Espiritual - Yone</option>
+              <option value="Kindred">Florescer Espiritual - Kindred</option>
+              <option value="Soraka">Emissários da Luz - Soraka</option>
+              <option value="Yasuo">Emissários da Luz - Yasuo</option>
+              <option value="Riven">Emissários da Luz - Riven</option>
+            </datalist>
+          </form>
           <button class="button button__depositar">Depositar</button>
-          <button class="button  button__retirar">Retirar $</button>
-          <button class="button button__solicitar" disabled>Solicitar Skin</button>
-          <p class="aviso">Solicite sua skin gratuita a partir de um saldo acumulado de R$500,00 </p>
+          <button class="button button__retirar">Retirar $</button>
+          <button class="button button__solicitar" disabled>
+            Solicitar Skin
+          </button>
+          <p class="aviso">
+            Adquira uma skin gratuita a partir de um saldo acumulado de R$500,00
+          </p>
         </div>
       </div>
 
@@ -132,22 +225,24 @@
           <h2>Depositar</h2>
           <form id="depositForm">
             <label for="address">Endereço:</label>
-            <input type="text" id="address" name="address" required>
-      
+            <input type="text" id="address" name="address" required />
+
             <label for="city">Cidade:</label>
-            <input type="text" id="city" name="city" required>
-      
+            <input type="text" id="city" name="city" required />
+
             <label for="state">Estado:</label>
-            <input type="text" id="state" name="state" required>
-      
+            <input type="text" id="state" name="state" required />
+
             <label for="paymentMethod">Forma de Pagamento:</label>
             <select id="paymentMethod" name="paymentMethod" required>
               <option value="creditCard">Cartão de Crédito</option>
               <option value="debitCard">Cartão de Débito</option>
               <option value="bankTransfer">Transferência Bancária</option>
             </select>
-      
-            <button type="button" id="confirmDepositBtn">Confirmar Depósito</button>
+
+            <button type="button" id="confirmDepositBtn">
+              Confirmar Depósito
+            </button>
           </form>
         </div>
       </div>
@@ -156,18 +251,35 @@
         <img
             class="logo"
             src="./images/Logo.svg"
-            alt="Logo GlascBet"
+            alt="Logo"
           />
         <div class="copyrights">&#169; 2024 Quimtec. Todos os direitos reservados.</div>
-        <div class="footer__info">
-          <img class="footer_18" src="./images/icon__18.png">
-          <ul class="footer_avisos">
+        <img class="footer_18" src="./images/icon__18.png">
+        <ul class="footer_avisos">
             <li class="footer_avisos-termos ">
-              <a href="#" class="footer_avisos-termos-link">termos de uso</a>
+              <a href="#" class="footer_avisos-termos-link">Termos de uso</a>
             </li>
             <li class="footer_avisos-termos ">
-              <a href="#" class="footer_avisos-termos-link">aviso de privacidade</a>
+              <a href="#" class="footer_avisos-termos-link">Aviso de privacidade</a>
             </li>
+        </ul>
+        <div class="footer_content_social">
+            <button class="footer__column-link ">
+              <img
+                class="footer__social-icons"
+                alt="Logo Facebook"
+                src="./images/facebook_white.svg"
+              />
+              <a href="#" class="footer__column-link "></a>
+            </button>
+            <button class="footer__column-link ">
+              <img
+                class="footer__social-icons"
+                alt="Logo Instagram"
+                src="./images/instagram_white.svg"
+              />
+              <a href="#" class="footer__column-link "></a>
+            </button>
           </ul>
         </div>
       </footer>
