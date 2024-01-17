@@ -86,17 +86,20 @@
           <h2>Apostar</h2>
           <p class="aposta__type"></p>
           <p class="aposta__league"></p>
+          <form class="aposta__form">
           <label for="quantia">Quantia:</label>
-          <input type="number" id="quantia" placeholder="Digite a quantia" max="10000" required>
+          <input type="number" class="quantia" id="quantia" placeholder="Digite a quantia" max="10000" required>
           <label for="ganho">Ganho:</label>
-          <input type="text" id="ganho" readonly>
+          <input type="text" class="ganho" id="ganho" readonly>
+        </form>
           <button id="confirmarAposta">Confirmar Aposta</button>
           <button id="depositar">Depositar Dinheiro</button>
         </div>
       </div>
 
 
+
     </section>
-    <script src="./page/index.js"></script>
+    <script type="module" src="./page/index.js"></script>
   </body>
 </html>
