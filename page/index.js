@@ -1,39 +1,53 @@
-//Vamos fazer o Initial Modal de login unico, e o resto dos modais serão extends(filhos)>>>>>>>>
-import Modal from "../components/Modal.js";
-import ModalApostas from "../components/ModalApostas.js";
-import DepositoModal from "../components/ModalDeposito.js";
-import Api from "../components/API.js";
-
-// // Exemplo de uso ModalAposta
-// const modal = new Modal('modalAposta');
-// modal.addInput('inputAposta');
-// modal.addCloseEventListener();
-// modal.open();
-
-//>>>>>Aposta>>>>>
-const apostaModal = new ApostaModal();
-apostaModal.addInput('inputApostaEspecifica');
-apostaModal.addCloseEventListener();
-apostaModal.open();
-
-//>>>>>deposito>>>>>
-const depositoModal = new DepositoModal();
-depositoModal.addInput('inputDepositoEspecifica');
-depositoModal.addCloseEventListener();
-depositoModal.open();
-
-//>>>>>API>>>>>
-Api.fazerRequisicao().then(dados => console.log(dados));
+import LoginModal from '../components/loginModal.js';
+import UserModal from '../components/userModal.js';
+import DepositModal from '../components/depositoModal.js';
+import ApostaModal from '../components/apostaModal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const apostaModal = new ApostaModal();
-  apostaModal.addInput('inputApostaEspecifica');
-  apostaModal.addCloseEventListener();
+    const loginModal = new LoginModal();
+    const userModal = new UserModal();
+    const depositModal = new DepositModal();
+    const apostaModal = new ApostaModal();
+    
+    const profileBtn = document.getElementById('profileBtn');
+    const moneyBtn = document.getElementById('moneyBtn');
+    const apostaBtn = document.querySelector('time-btn');
+    // const apostaBtn = document.querySelectorAll('.time-btn');
 
-  const depositoModal = new DepositoModal();
-  depositoModal.addInput('inputDepositoEspecifica');
-  depositoModal.addCloseEventListener();
+    // apostaBtn.forEach((btn) => {
+    //     btn.addEventListener('click', () => {
+    //       apostaModal.open();
+    //     });
+    // });
 
-  const apiData = Api.fazerRequisicao();
-  apiData.then(dados => console.log(dados));
+    apostaBtn.addEventListener('click', () => {
+        apostaModal.open();
+    });
+
+    profileBtn.addEventListener('click', () => {
+        userModal.open();
+    });
+    
+    document.querySelector('.close').addEventListener('click', () => {
+      userModal.close();
+      depositModal.close();
+      apostaModal.close();
+    });
+    
+    document.querySelector('.button__depositar').addEventListener('click', () => {
+        userModal.close();
+        depositModal.open();
+    });
+    
+    moneyBtn.addEventListener('click', () => {
+        depositModal.open();
+    }); 
+  
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        userModal.close();
+        depositModal.close();
+        apostaModal.close();
+      }
+    });
 });
