@@ -32,11 +32,11 @@
               <p class="aposta__league">Liga: Nome da Liga</p>
             </div>
             <div class="aposta-options">
-              <button class="time-btn" data-odd="2.5" data-time="Time A">
+              <button class="time-btn" id="time-btn1" data-odd="2.5" data-time="Time A">
                 Time A <span class="odd">2.5</span>
               </button>
               <p class="vs">VS</p>
-              <button class="time-btn" data-odd="1.8" data-time="Time B">
+              <button class="time-btn" id="time-btn2" data-odd="1.8" data-time="Time B">
                 Time B <span class="odd">1.8</span>
               </button>
             </div>
@@ -125,7 +125,7 @@
       <!-- Modal de Aposta -->
       <div id="modalAposta" class="modal modal_aposta">
         <div class="modal-aposta-content">
-          <span class="close">&times;</span>
+          <button class="close">&times;</button>
           <h2 class="modal-title">Apostar</h2>
           <p class="aposta__type"></p>
           <p class="aposta__league"></p>
@@ -154,7 +154,7 @@
       <!-- Modal do Usuário -->
       <div id="modalUser" class="modal modal_user">
         <div class="modal-content modal-content-user">
-          <span class="close">&times;</span>
+          <button type="button" class="close">&times;</button>
           <img
             src="./images/UserImage.png"
             alt="Foto do usuário"
@@ -212,28 +212,22 @@
       </div>
 
       <!--Adicionei o modal depósito *Marina-->
-      <div id="depositModal" class="modal_deposito">
+      <div id="depositModal" class="modal modal_deposito">
         <div class="modal-deposito-content">
           <span class="close" id="closeModalBtn">&times;</span>
           <h2>Depositar</h2>
-          <form id="depositForm">
-            <label for="address">Endereço:</label>
-            <input type="text" id="address" name="address" required />
+          <form id="depositForm" class="depositForm">
+            <input type="text" id="address" name="address" placeholder="Endereço" required />
 
-            <label for="city">Cidade:</label>
-            <input type="text" id="city" name="city" required />
+            <input type="text" id="state" name="state" placeholder="Estado" required />
 
-            <label for="state">Estado:</label>
-            <input type="text" id="state" name="state" required />
-
-            <label for="paymentMethod">Forma de Pagamento:</label>
-            <select id="paymentMethod" name="paymentMethod" required>
+            <select id="paymentMethod" class="paymentMethod" name="paymentMethod" placeholder="Forma de Pagamento" required>
               <option value="creditCard">Cartão de Crédito</option>
               <option value="debitCard">Cartão de Débito</option>
               <option value="bankTransfer">Transferência Bancária</option>
             </select>
 
-            <button type="button" id="confirmDepositBtn">
+            <button type="button" class= "button" id="confirmDepositBtn">
               Confirmar Depósito
             </button>
           </form>

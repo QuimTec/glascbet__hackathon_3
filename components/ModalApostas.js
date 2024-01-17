@@ -14,13 +14,10 @@ export default class ModalApostas extends Modal {
 
     const quantia = this._modalForm.querySelector(".quantia");
     const quantiaValue = quantia.value
-    console.log(quantiaValue)
     return quantiaValue;
   }
 
   setInputValues(){
-    console.log("input")
-
     this.getInputValues()
 const ganho = this._modal.querySelector(".ganho");
 quantia.value = ganho

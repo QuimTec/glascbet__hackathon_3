@@ -7,6 +7,36 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+.depositForm{
+  display: grid;
+  grid-column: 1;
+  gap: 15px;
+  margin-bottom: 55px;
+}
+
+.depositForm input, select{
+  border-radius: 10px;
+  background: var(--Boto, rgba(160, 155, 140, 0.2));
+  height: 30px;
+  color: var(--corclara, #eaf4f6);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+select{
+  border-radius: 10px;
+  background: var(--Boto, rgb(73, 71, 63));
+  height: 30px;
+  color: var(--corclara, #eaf4f6);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
 .modal-deposito-content {
     background-color: #010A13;

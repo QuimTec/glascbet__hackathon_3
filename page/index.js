@@ -2,28 +2,43 @@
 import Modal from "../components/Modal.js";
 import ModalApostas from "../components/ModalApostas.js";
 
-const timeButton = document.querySelector(".time-btn");
-const odd = timeButton.getAttribute("data-odd");
 // Abre e fecha o modal de apostas
-
+const button1 = document.getElementById("time-btn1");
+button1.addEventListener("click", () => {
 const modalApostas = new ModalApostas({
-  odd: odd,
+  odd: button1.querySelector(".odd").value,
   modalSelector: ".modal_aposta",
 });
-modalApostas.setInputValues();
+modalApostas.open();
+})
+
+const button2 = document.getElementById("time-btn2");
+button2.addEventListener("click", () => {
+const modalApostas = new ModalApostas({
+  odd: button2.querySelector(".odd").value,
+  modalSelector: ".modal_aposta",
+});
+modalApostas.open();
+})
+
 
 // Modal do Usuário
-const modalUser = new Modal(".modal_user", ".button__profile");
-modalUser.setEventListeners();
+const profileButton = document.querySelector(".button__profile");
+const modalUser = new Modal(".modal_user");
+
+profileButton.addEventListener("click", () => {
+  modalUser.open();
+});
+
 
 // const buttonProfile = document.querySelector(".button__profile");
 // buttonProfile.addEventListener("click", openModal)
 function openModal() {
-    document.getElementById('modal').style.display = 'flex';
+  document.getElementById("modal").style.display = "flex";
 }
 
 // Função para fechar o modal
-function closeModal(){
+function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
@@ -72,4 +87,3 @@ function abrirModalDeposito() {
 
   // Adicione lógica adicional para abrir o modal de depósito aqui
 }
-
