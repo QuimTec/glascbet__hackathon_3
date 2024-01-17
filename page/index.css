@@ -4,6 +4,7 @@
 @import url(../blocks/main-section.css);
 @import url(../blocks/modal.css);
 @import url(../blocks/modal-aposta.css);
+@import url(../blocks/modal-deposito.css);
 
 .page {
     margin: 0 auto;

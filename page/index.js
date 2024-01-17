@@ -22,7 +22,7 @@ function closeModal() {
 }
 
 // Abre o modal automaticamente quando a página é carregada
-window.onload = openModal;
+// window.onload = openModal;
 
 //MODAL APOSTA>>>>>>>>>>>>
 // Função para exibir o modal de aposta
@@ -67,3 +67,33 @@ function abrirModalDeposito() {
   // Adicione lógica adicional para abrir o modal de depósito aqui
 }
 
+//Adicionando function do MODAL DEPOSITO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+document.addEventListener('DOMContentLoaded', function () {
+  const moneyBtn = document.getElementById('moneyBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const depositModal = document.getElementById('depositModal');
+
+  moneyBtn.addEventListener('click', function () {
+    depositModal.style.display = 'block';
+  });
+
+  closeModalBtn.addEventListener('click', function () {
+    depositModal.style.display = 'none';
+  });
+
+  window.addEventListener('click', function (event) {
+    if (event.target === depositModal) {
+      depositModal.style.display = 'none';
+    }
+  });
+
+  const confirmDepositBtn = document.getElementById('confirmDepositBtn');
+  const depositForm = document.getElementById('depositForm');
+
+  confirmDepositBtn.addEventListener('click', function () {
+    // Lógica para lidar com o envio do formulário
+    // Por exemplo, você pode usar AJAX para enviar os dados para o servidor.
+    // E depois de enviar, pode fechar o modal.
+    depositModal.style.display = 'none';
+  });
+});
