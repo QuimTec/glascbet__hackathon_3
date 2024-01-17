@@ -22,7 +22,7 @@ function closeModal() {
 }
 
 // Abre o modal automaticamente quando a página é carregada
-// window.onload = openModal;
+window.onload = openModal;
 
 //MODAL APOSTA>>>>>>>>>>>>
 // Função para exibir o modal de aposta
