@@ -2,10 +2,11 @@
   display: flex;
   padding: 10px;
   background-color: #1f1f1f;
-  color: white;
+  color: #EAF4F6;
   min-height: 100px;
   align-items: center;
   justify-content: space-between;
+  font-family: Inter;
 }
 
 .footer__columns {
@@ -45,7 +46,6 @@
 }
 .footer_avisos {
   list-style: none;
-  color: white;
   text-decoration: none;
   margin: 0;
 }
@@ -56,13 +56,6 @@
   margin-bottom: 20px;
 }
 
-.footer__column-link {
-  list-style: none;
-  line-height: 30px;
-  font-size: 15px;
-  font-weight: normal;
-  color: white;
-}
 .footer_content_social {
   display: flex;
   flex-direction: column;
@@ -71,4 +64,11 @@
   width: 16px;
   height: 16px;
   margin-right: 10px;
+}
+
+.footer_avisos-termos-link {
+  font-size: 20px;
+  font-weight: 400;
+  color: #EAF4F6;
+  text-decoration: underline;
 }

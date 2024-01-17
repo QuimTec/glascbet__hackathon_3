@@ -1,5 +1,6 @@
-import Modal from "./Modal.js";
-import ModalApostas from "./ModalApostas.js";
+//Vamos fazer o Initial Modal de login unico, e o resto dos modais serão extends(filhos)>>>>>>>>
+import Modal from "../components/Modal.js";
+import ModalApostas from "../components/ModalApostas.js";
 
 const timeButton = document.querySelector(".time-btn");
 const odd = timeButton.getAttribute("data-odd");
