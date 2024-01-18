@@ -40,10 +40,6 @@ export default class ApostaModal {
     }
   
     calculateGanho() {
-
-      const timeAButton = document.querySelector('.time-btn[data-time="Time A"]');
-      const timeBButton = document.querySelector('.time-btn[data-time="Time B"]');
-      console.log(timeAButton);
       // Lógica para calcular o ganho com base na quantia e odd
       const odd = 2.5; // Substitua pela odd correta
       const quantia = parseFloat(this.quantiaInput.value);
