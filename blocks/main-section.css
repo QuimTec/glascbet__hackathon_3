@@ -1,32 +1,24 @@
 .main-section {
-    padding-top: 200px;
-    background: url("../images/background.png") center/cover; 
-    height: 100vh;
-    color: #EAF4F6;
-    text-align: center;
-    font-family: Inter;
-    /* nao sao todos navs que aceitam */
-    background-attachment: fixed; 
+  padding-top: 200px;
+  background: url("../images/background.png") center/cover;
+  height: 100vh;
+  color: #EAF4F6;
+  text-align: center;
+  font-family: Inter;
+  background-attachment: fixed;
 }
-.main__title{
-    font-size: 36px;
-    font-weight: 900;
-    text-transform: uppercase;
+
+.main__title {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
-/* .apostas {
-  max-height: 70vh;
-  overflow-y: auto;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-    align-items: left;
-    max-height: calc(100vh - 120px);
-} */
+
 .apostas {
-  max-height: 70vh;
+  max-width: 70vw;
+  max-height: 90vh;
   overflow-y: auto;
+  margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -36,145 +28,97 @@
 .apostas::-webkit-scrollbar {
   width: 12px;
 }
-/* .aposta-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 15px 30px;
-    margin-bottom: 20px;
-    flex: 1; 
-    width: 80%; 
-    margin: 10px; 
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  } */
+
+.aposta-card {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: calc(33.33% - 20px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aposta__type {
+  color: #0397AB;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.aposta__league {
+  margin: 0;
+  color: #F7F7F7;
+  font-size: 18px;
+}
+
+.aposta-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  align-items: center;
+}
+
+.aposta-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.time-btn {
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 0 10px 5px rgba(133, 151, 153, 0.5);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 5px;
+  color: #F7F7F7;
+  font-size: 20px;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.time-btn:hover {
+  border: none;
+  background-color: #0397AB;
+  box-shadow: 0 0 10px 5px rgba(3, 151, 171, 0.5);
+}
+
+.vs {
+  margin: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.aposta__win-percentage{
+  color: #F7F7F7;
+  font-size: 16px;
+  font-weight: 300;
+}
+@media (max-width: 960px) {
   .aposta-card {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 560px) {
+  .main-section {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .aposta-card {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .aposta-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 0;
-    align-items: center;
-  }
-  .aposta__type {
-    font-size: 20px;
-    font-weight: 700;
-    color: #0397AB;
-    margin: 0;
-    margin-bottom: 8px;
-}
-.aposta__win-percentage, 
-.aposta__wins,
-.aposta__total-games,
-.aposta__league  {
-  color: #EAF4F6;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 0;
-}
-  .aposta-options {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 10px; /* Adicionado margem para melhor espaçamento */
-  }
-  
-  /* .time-btn {
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #EAF4F6;
-    font-size: 24px;
-    font-family: Inter;
-    font-weight: 700;
-    box-sizing: border-box;
-  } */
-  .time-btn {
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    color:  #0397AB;
-    font-size: 20px;
-    font-family: Inter;
-    font-weight: 700;
-    box-sizing: border-box;
-  }
-  .time-btn:hover {
-    background-color: #0397AB;
-  }
-  
-  .vs {
-    margin: 0;
-    font-size: 24px;
-    font-weight: 700;
+    margin-right: 0;
   }
 
-
-/* @media (max-width: 1190px) {
-    .aposta-card {
-        padding: 15px 30px;
-    }
-
-    .aposta-options {
-        width: 100%;
-    }
-
-    .time-btn {
-        padding: 10px 40px;
-    }
-} */
-/* 
-@media (max-width: 560px) {
-  .main-section {
-    padding-top: 200px;
-    font-size: 16px;
-  }
-
-  .aposta-card {
-      padding: 15px; 
-      max-width: 100%; 
-      flex-direction: column;
-  }
-
-  .aposta__type,
-  .aposta__league,
-  .odd,
-  .vs {
-      font-size: 18px; 
-  }
-
-  .aposta-options,
-  .aposta-info {
-      width: 100%;
-      text-align: center;
-  }
-
-  .time-btn {
-      padding: 10px 20px; 
-  }
-} */
-
-@media (max-width: 560px) {
-  .main-section {
-    padding-top: 200px;
-    font-size: 16px;
+  .apostas {
+    justify-content: flex-start;
   }
 
   .aposta__type,
@@ -188,5 +132,9 @@
   .aposta-info {
     width: 100%;
     text-align: center;
+  }
+
+  .aposta-card:nth-child(2n) {
+    margin-right: 0;
   }
 }
