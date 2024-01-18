@@ -1,12 +1,13 @@
 
-
+drop table usuarios;
 CREATE TABLE usuarios (
   id_user INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
   email VARCHAR(50) UNIQUE NOT NULL,
   cpf CHAR(11) UNIQUE NOT NULL,
   senha VARCHAR(6) NOT NULL,
-  saldo DECIMAL(10,2) DEFAULT 0
+  saldo DECIMAL(10,2) DEFAULT 0,
+  pontos SMALLINT UNSIGNED NOT NULL DEFAULT 0 CHECK (pontos <= 5000)
 );
 
 

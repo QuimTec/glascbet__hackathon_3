@@ -37,6 +37,7 @@ app.post("/usuario",function(require,response){
   })
 });
 
+
 //Autenticação
 app.post('/login',(require, response) => {
   var obj = require.body;
@@ -54,7 +55,7 @@ app.post('/login',(require, response) => {
               console.log("token :"+token);
               response.cookie('token', token, {
                   httpOnly: true, // O cookie não é acessível via JavaScript no navegador
-                  secure: true,   // O cookie só é enviado em requisições HTTPS
+                 /* secure: true, O cookie só é enviado em requisições HTTPS, comentado para realizar os testes locais*/
               });
 
               response.redirect('/index.html');  
@@ -86,29 +87,47 @@ function verifyJWT(req, res, next){
   });
 }
 
-//Inserir dinheiro
-// Atualizar saldo
-app.put("/usuario/addSaldo", verifyJWT, function(req, res) {
-    var obj = req.body;
+//Carregar dados do usuário
+app.get("/usuario",verifyJWT, function(req, res, next){
     const token = req.cookies.token;
     const decoded = jwt.verify(token, process.env.SECRET)
-    const id_user = decoded.id_user;
-    var id = id_user;
-    db.saldo(id, function(error, results) { 
+    const id_user = decoded.id;
+    console.log("id :" + id_user );
+    var obj = id_user;
+    db.dadosUser(obj, function(error, result){
+      if(error){
+          res.json(error);
+      }else{
+          console.log(result[0]);
+          res.json(result[0]);
+          
+      }
+  })
+});
+
+// Atualizar saldo
+app.put("/usuario/addSaldo", verifyJWT, function(req, res) {
+    var add = req.body;
+    console.log(obj);
+    const token = req.cookies.token;
+    const decoded = jwt.verify(token, process.env.SECRET)
+    const id_user = decoded.id;
+    console.log("id :" + id_user );
+    var obj = id_user;
+    db.saldo(obj, function(error, rows) { 
         if (error) {
             res.json(error);
         } else {
-          
-            var saldoAtual = results[0].saldo;
+            var saldoAtual = rows[0].saldo;
             console.log(saldoAtual);
-            var novoSaldo = saldoAtual + obj.saldo;
+            var novoSaldo = saldoAtual + add.valor;
             console.log(novoSaldo);
             db.atualizarSaldo({ id_user: id_user, saldo: novoSaldo }, function(error) {
                 if (error) {
                     res.json(error);
                 } else {
                     res.writeHead(200, { "Content-Type": "application/json" });
-                    res.end('{ "msg": "Usuário atualizado" }');
+                    res.end('{ "msg": "Saldo atualizado" }');
                 }
             });
         }
@@ -145,6 +164,126 @@ app.post("/partida",function(require,response){
         }
     })
   });
+
+//Realizar aposta
+app.post("/apostar", function (req, res) {
+    var obj = req.body;
+    if(obj.diaAposta>obj.diaJogo){
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end('{ "msg": "Apostas encerradas para o evento" }');
+    } else{
+        const token = req.cookies.token;
+        const decoded = jwt.verify(token, process.env.SECRET)
+        const id_user = decoded.id;
+        db.addAposta(id_user, obj, function (error) {
+            if (error) {
+                res.json(error);
+            } else {
+                // Subtrair o valor apostado do saldo do usuário
+                var valorAposta = obj.valor;
+    
+                db.saldo(id_user, function (error, results) {
+                    if (error) {
+                        res.json(error);
+                    } else {
+                        var saldoAtual = results[0].saldo;
+                        var novoSaldo = saldoAtual - valorAposta;
+    
+                        // Atualizar o saldo no banco de dados
+                        db.atualizarSaldo({ id_user: id_user, saldo: novoSaldo }, function (error) {
+                            if (error) {
+                                res.json(error);
+                            } else {
+                                res.writeHead(200, { "Content-Type": "application/json" });
+                                res.end('{ "msg": "Apostas realizada com sucesso" }');
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    }
+    
+});
+
+//Encerrar e pagar apostas
+app.put("/encerrarAposta", function (req, res){
+    var obj = req.body;
+    db.encerrarJogos(obj, function (error) {
+        if (error) {
+            res.json(error);
+        } else {
+            db.encerrarApostasVencedoras(obj, function(error){
+                if (error) {
+                    res.json(error);
+                }  else {                                    
+                    db.encerrarApostasPerdedoras(obj, function(error){
+                        if (error) {
+                            res.json(error);
+                        }  else {
+                            db.pagarApostas(obj, function(error, results) {
+                                if (error) {
+                                    res.json(error);
+                                } else {
+                                    // Verificar se há resultados
+                                    if (results && results.length > 0) {
+                                        // Iterar sobre os resultados
+                                        results.forEach(function(aposta) {
+                                            var valorGanho = aposta.valor * aposta.odds;
+                                            console.log("Ganho para id_user " + aposta.id_user + ": " + valorGanho);
+                            
+                                            var id_user = aposta.id_user;
+                                            
+                                            // Chamar db.saldo para cada id_user
+                                            db.saldo(id_user, function(error, saldoResults) {
+                                                if (error) {
+                                                    console.error(error);
+                                                } else {
+                                                    var saldoAtual = saldoResults[0].saldo;
+                                                    var novoSaldo = saldoAtual + valorGanho;
+                            
+                                                    // Atualizar o saldo no banco de dados
+                                                    db.atualizarSaldo({ id_user: id_user, saldo: novoSaldo }, function (error) {
+                                                        if (error) {
+                                                            console.error(error);
+                                                        } else {
+                                                            console.log("Saldo atualizado para id_user " + id_user + ": " + novoSaldo);
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        });
+                            
+                                        res.writeHead(200, { "Content-Type": "application/json" });
+                                        res.end('{ "msg": "Apostas encerradas com sucesso" }');
+                                    } 
+                                }
+                            });
+                        }
+                    });        
+                }
+            });
+        }
+    });
+});
+
+//Buscar apostas por usuário
+app.get("/minhasApostas", function(req,res){
+    const token = req.cookies.token;
+    const decoded = jwt.verify(token, process.env.SECRET)
+    const id_user = decoded.id;
+    console.log("id :" + id_user );
+    var obj = id_user
+    db.getApostasUser(obj,function(error, rows){
+        if(error){
+            res.json(error);
+        }else{
+            console.log(rows);
+            res.json(rows);
+            
+        }
+    })
+})
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
