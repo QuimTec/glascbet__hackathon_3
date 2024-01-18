@@ -1,6 +1,6 @@
 .navbar {
     background: linear-gradient(to right, #666, #333);
-    height: 130px;
+    height: 110px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -51,7 +51,7 @@
         flex-direction: column;
         align-items: center;
         height: auto; 
-        padding: 20px; 
+        padding-top: 20px; 
     }
 
     .logo img {
