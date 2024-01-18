@@ -52,10 +52,9 @@
     flex-direction: column;
     text-align: center;
     padding: 20px;
-    gap: 15px; /* Reduzindo o espaço entre os elementos */
-    font-size: 14px; /* Reduzindo o tamanho da fonte */
+    gap: 20px; 
+    font-size: 14px; 
   }
-
   .footer_avisos {
     gap: 10px;
   }
@@ -63,20 +62,20 @@
 
 @media screen and (max-width: 560px) {
   .footer {
-    padding: 15px; /* Ajustando o preenchimento para telas ainda menores */
-    font-size: 12px; /* Reduzindo mais o tamanho da fonte */
+    padding: 15px; 
+    font-size: 12px; 
   }
 
   .footer_avisos-termos {
-    padding-right: 20px; /* Reduzindo o espaço à direita para os termos */
+    padding-right: 20px; 
   }
 
   .social-media {
     flex-direction: column;
-    gap: 10px; /* Espaçamento entre os ícones sociais */
+    gap: 10px; 
   }
 
   .footer_avisos {
-    gap: 8px; /* Espaçamento entre os itens do aviso */
+    gap: 8px; 
   }
 }
