@@ -29,11 +29,33 @@ export default class DepositModal {
       const city = document.getElementById('city').value;
       const state = document.getElementById('state').value;
       const paymentMethod = document.getElementById('paymentMethod').value;
-  
-      // Adicione sua lógica de confirmação de depósito aqui
-  
-      // Feche o modal após a confirmação
-      this.close();
+      const valorDeposito = parseFloat(document.getElementById('valorDeposito').value);
+
+      if (valorDeposito<1) {
+        alert("Valor inválido.");
+        return;
+    }
+    console.log(valorDeposito);
+    console.log(typeof valorDeposito);
+      var deposito = {   
+        valor: valorDeposito
+    };
+    console.log(deposito)
+      var minhaRequisicao = new Request("http://localhost:3000/usuario/addSaldo");
+      fetch(minhaRequisicao,{
+        method: "PUT",
+        headers:{
+            Accept: "application/json",
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify(deposito)
+      }).then(response => {
+        if (response.status === 200) {
+            this.close(); // Chama a função close() se a resposta for 200
+            window.location.reload();
+        }
+        return response.text();
+      })    
     }
   }
 

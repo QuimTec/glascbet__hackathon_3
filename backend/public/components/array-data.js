@@ -400,13 +400,6 @@ export const arrayData = [
     },
     {
         "league": "LPL",
-        "teamname": "LGD Gaming",
-        "wins": "24",
-        "total_games": "77",
-        "win_percentage": "31.16883116883117"
-    },
-    {
-        "league": "LPL",
         "teamname": "Ultra Prime",
         "wins": "21",
         "total_games": "75",
