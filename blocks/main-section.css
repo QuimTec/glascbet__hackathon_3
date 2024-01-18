@@ -1,32 +1,23 @@
 .main-section {
-    padding-top: 10px;
-    background: url("../images/background.png") center/cover; 
-    height: 100vh;
-    color: #EAF4F6;
-    text-align: center;
-    font-family: Inter;
-    /* nao sao todos navs que aceitam */
-    background-attachment: fixed; 
+  padding-top: 200px;
+  background: url("../images/background.png") center/cover;
+  height: 100vh;
+  color: #EAF4F6;
+  text-align: center;
+  font-family: Inter;
+  background-attachment: fixed;
 }
-.main__title{
-    font-size: 36px;
-    font-weight: 900;
-    text-transform: uppercase;
+
+.main__title {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
-/* .apostas {
+
+.apostas {
   max-height: 70vh;
   overflow-y: auto;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between; 
-    align-items: left;
-    max-height: calc(100vh - 120px);
-} */
-.apostas {
-  max-height: 90vh;
-  overflow-y: auto;
+  margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
@@ -115,21 +106,9 @@
     font-family: Inter;
     font-weight: 700;
     box-sizing: border-box;
-    width: 45%;
-    word-break: break-word;
-    min-height: 70px;
   }
-
-  .aposta__win-percentage{
-    margin: 0 15px;
-  }
-
-  .aposta__wins {
-    margin: 0 15px;
-  }
-
   .time-btn:hover {
-    background-color: #000000;
+    background-color: #0397AB;
   }
   
   .vs {
@@ -148,11 +127,6 @@
         width: 100%;
     }
 
-    .time-btn {
-        padding: 10px 40px;
-    }
-} */
-/* 
 @media (max-width: 560px) {
   .main-section {
     padding-top: 200px;
@@ -160,33 +134,12 @@
   }
 
   .aposta-card {
-      padding: 15px; 
-      max-width: 100%; 
-      flex-direction: column;
+    width: 100%;
+    margin-right: 0;
   }
 
-  .aposta__type,
-  .aposta__league,
-  .odd,
-  .vs {
-      font-size: 18px; 
-  }
-
-  .aposta-options,
-  .aposta-info {
-      width: 100%;
-      text-align: center;
-  }
-
-  .time-btn {
-      padding: 10px 20px; 
-  }
-} */
-
-@media (max-width: 560px) {
-  .main-section {
-    padding-top: 200px;
-    font-size: 16px;
+  .apostas {
+    justify-content: flex-start;
   }
 
   .aposta__type,
@@ -200,5 +153,9 @@
   .aposta-info {
     width: 100%;
     text-align: center;
+  }
+
+  .aposta-card:nth-child(2n) {
+    margin-right: 0;
   }
 }

@@ -1,3 +1,5 @@
+import DepositModal from '../components/depositoModal.js';
+
 export default class ApostaModal {
     constructor() {
       this.modal = document.getElementById('modalAposta');
@@ -7,15 +9,24 @@ export default class ApostaModal {
       this.quantiaInput = this.modal.querySelector('#quantia');
       this.ganhoInput = this.modal.querySelector('#ganho');
       // this.openButtons = this.modal.getElementById('.time-btn');
-  
+      
+      this.depositModal = new DepositModal;
+
+      this.teamname = null;
+      this.winPercentage = null;
+      this.wins = null;
+      this.totalGames = null;
       this.setupEventListeners();
+      this.quantiaInput = this.modal.querySelector('#quantia');
     }
   
     setupEventListeners() {
       this.closeButton.addEventListener('click', () => this.close());
       this.confirmApostaButton.addEventListener('click', () => this.confirmAposta());
-      this.depositarButton.addEventListener('click', () => this.openDepositModal());
-  
+      this.depositarButton.addEventListener('click', () => {
+        this.close();
+        this.depositModal.open();
+      });
       this.quantiaInput.addEventListener('input', () => this.calculateGanho());
 
       // this.openButtons.forEach((button) => {
@@ -23,12 +34,19 @@ export default class ApostaModal {
       // });
     }
   
-    open() {
+    open(teamname, winPercentage, wins, totalGames) {
+      this.teamname = teamname;
+      this.winPercentage = winPercentage;
+      this.wins = wins;
+      this.totalGames = totalGames;
+      this.ganhoInput.value = "";
+      this.quantiaInput.value = ""; // Limpar o valor do campo de entrada de quantia
       this.modal.style.display = 'flex';
-    }
+  }
   
     close() {
       this.modal.style.display = 'none';
+      
     }
   
     confirmAposta() {
@@ -40,15 +58,10 @@ export default class ApostaModal {
     }
   
     calculateGanho() {
-
-      const timeAButton = document.querySelector('.time-btn[data-time="Time A"]');
-      const timeBButton = document.querySelector('.time-btn[data-time="Time B"]');
-      console.log(timeAButton);
-      // Lógica para calcular o ganho com base na quantia e odd
-      const odd = 2.5; // Substitua pela odd correta
+      const odd = this.winPercentage;
       const quantia = parseFloat(this.quantiaInput.value);
       const ganho = quantia * odd || 0;
       this.ganhoInput.value = ganho.toFixed(2);
-    }
+  }
 }
   

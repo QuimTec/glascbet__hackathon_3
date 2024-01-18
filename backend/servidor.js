@@ -285,6 +285,19 @@ app.get("/minhasApostas", function(req,res){
     })
 })
 
+//Buscar jogos
+app.get("/jogos", function(req, res, ){
+    db.getJogos( function(error, result){
+      if(error){
+          res.json(error);
+      }else{
+          console.log(result);
+          res.json(result);
+          
+      }
+  })
+});
+
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });

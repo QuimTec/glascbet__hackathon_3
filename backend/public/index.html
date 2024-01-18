@@ -21,28 +21,16 @@
         </div>
       </nav>
       <!--main-section-->
-      <div class="main-section">
-        <!--Title-->
-        <h2 class="main__title">Apostas</h2>
-        <!--Grid-->
-        <div class="apostas">
-          <div class="aposta-card">
-            <div class="aposta-info">
-              <p class="aposta__type">Tipo de Aposta: Vencedor da Partida</p>
-              <p class="aposta__league">Liga: Nome da Liga</p>
-            </div>
-            <div class="aposta-options">
-              <button class="time-btn" data-odd="2.5" data-time="Time A">
-                Time A <span class="odd">2.5</span>
-              </button>
-              <p class="vs">VS</p>
-              <button class="time-btn" data-odd="1.8" data-time="Time B">
-                Time B <span class="odd">1.8</span>
-              </button>
-            </div>
-          </div>
-        </div>
+     <div class="main-section">
+      <!--Title-->
+      <h2 class="main__title">Apostas</h2>
+      <!--Grid-->
+      <!-- Container onde os cards serão adicionados -->
+      <div id="apostas-container" class="apostas">
+        <!-- Os cards serão adicionados aqui dinamicamente -->
       </div>
+
+    </div> 
 
       <!-- Modal de Login/Register -->
       <div id="modal" class="modal">
@@ -230,7 +218,10 @@
             <input type="text" id="city" name="city" required />
 
             <label for="state">Estado:</label>
-            <input type="text" id="state" name="state" required />
+            <input type="text" id="state" name="state" required /> 
+
+            <label for="valorDeposito">Valor:</label>
+            <input type="text" id="valorDeposito" name="valorDeposito" required /
 
             <label for="paymentMethod">Forma de Pagamento:</label>
             <select id="paymentMethod" name="paymentMethod" required>

@@ -1,3 +1,4 @@
+import DepositModal from '../components/depositoModal.js';
 
 export default class UserModal {
   constructor() {
@@ -5,7 +6,7 @@ export default class UserModal {
     this.profileBtn = document.getElementById('profileBtn');
     this.depositBtn = document.querySelector('.button__depositar');
     this.closeButton = document.querySelector('.close_user');
-   
+    this.depositModal = new DepositModal;
 
     this.setupEventListeners();
   }
@@ -33,7 +34,7 @@ export default class UserModal {
     this.closeButton.addEventListener('click', () => this.close());
     this.depositBtn.addEventListener('click', () => {
       this.close();
-      depositModal.open();
+      this.depositModal.open();
     });
 
     // Adicionar evento para fechar o modal do usuário ao pressionar a tecla "Esc"
