@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   font-family: Inter;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .footer_avisos {
@@ -21,7 +21,9 @@
 
 .footer_avisos-termos{
   margin: 0;
+  gap: 5px;
   text-decoration: none;
+  padding-right: 60px;
 }
 .footer_avisos-termos-link {
   font-weight: 400;
@@ -37,18 +39,44 @@
 .footer_18 {
   object-fit: contain;
 }
-
-@media screen and (max-width: 767px) {
+.social-media{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.social-logo {
+  object-fit: contain;
+}
+@media screen and (max-width: 800px) {
   .footer {
     flex-direction: column;
     text-align: center;
     padding: 20px;
-    gap: 30px;
-    font-size: 16px;
+    gap: 15px; /* Reduzindo o espaço entre os elementos */
+    font-size: 14px; /* Reduzindo o tamanho da fonte */
   }
 
   .footer_avisos {
     gap: 10px;
   }
+}
 
+@media screen and (max-width: 560px) {
+  .footer {
+    padding: 15px; /* Ajustando o preenchimento para telas ainda menores */
+    font-size: 12px; /* Reduzindo mais o tamanho da fonte */
+  }
+
+  .footer_avisos-termos {
+    padding-right: 20px; /* Reduzindo o espaço à direita para os termos */
+  }
+
+  .social-media {
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os ícones sociais */
+  }
+
+  .footer_avisos {
+    gap: 8px; /* Espaçamento entre os itens do aviso */
+  }
 }
