@@ -22,10 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
  
 
   apostaBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-          apostaModal.open();
-      });
-  });
+    btn.addEventListener('click', (event) => {
+        const teamname = event.currentTarget.dataset.teamname;
+        const winPercentage = event.currentTarget.dataset.winPercentage;
+        const wins = event.currentTarget.dataset.wins;
+        const totalGames = event.currentTarget.dataset.totalGames;
+
+        apostaModal.open(teamname, winPercentage, wins, totalGames);
+    });
+});
 
   profileBtn.addEventListener('click', () => {
       userModal.open();
@@ -71,14 +76,14 @@ function createApostaCard(obj1, obj2) {
       <div class="aposta-options">
         <button class="time-btn" data-teamname="${obj1.teamname}" data-win-percentage="${obj1.win_percentage}" data-wins="${obj1.wins}" data-total-games="${obj1.total_games}">
           <div>
-            ${obj1.teamname} <span class="aposta__win-percentage">Odds ${(1/(obj1.win_percentage/(obj1.win_percentage+obj2.win_percentage))).toFixed(2)}</span>
+            ${obj1.teamname} <span class="aposta__win-percentage">Odds ${obj1.win_percentage.toFixed(2)}</span>
           </div>
         
         </button>
         <p class="vs">VS</p>
         <button class="time-btn" data-teamname="${obj2.teamname}" data-win-percentage="${obj2.win_percentage}" data-wins="${obj2.wins}" data-total-games="${obj2.total_games}">
           <div>
-            ${obj2.teamname} <span class="aposta__win-percentage">Odds ${(1/(obj2.win_percentage/(obj1.win_percentage+obj2.win_percentage))).toFixed(2)}</span>
+            ${obj2.teamname} <span class="aposta__win-percentage">Odds ${obj2.win_percentage.toFixed(2)}</span>
           </div>
         
         </button>
@@ -92,8 +97,8 @@ const apostasContainer = document.getElementById('apostas-container');
 for (let i = 0; i < arrayData.length; i += 2) {
   const obj1 = arrayData[i];
   const obj2 = arrayData[i + 1];
-  obj1.win_percentage = parseFloat(obj1.win_percentage);
-  obj2.win_percentage = parseFloat(obj2.win_percentage);
-
+  obj1.win_percentage = (parseFloat(obj1.win_percentage)+parseFloat(obj2.win_percentage))/parseFloat(obj1.win_percentage);
+ 
+  obj2.win_percentage = 4-parseFloat(obj1.win_percentage);
   apostasContainer.innerHTML += createApostaCard(obj1, obj2);
 }
