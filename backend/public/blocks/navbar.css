@@ -7,7 +7,6 @@
     align-items: center;
     position: fixed;
     width: 100%;
-    z-index: 1000;
 }
 .logo {
     font-size: 20px;
@@ -49,24 +48,31 @@
 
 @media (max-width: 768px) {
     .navbar {
-      flex-direction: column;
-      align-items: center;
-      padding: 30px;
+        flex-direction: column;
+        align-items: center;
+        height: auto; 
+        padding: 20px; 
     }
 
-    button {
-      margin: 5px 0;
-    }
     .logo img {
         padding: 0;
-    }
-
-    .nav-elements button img {
-        width: 70%; 
-        height: 70%; 
+        margin-bottom: 15px; 
     }
 
     .nav-elements {
         padding-right: 0;
+    }
+
+    button {
+        margin: 5px 0;
+    }
+
+    .button__money {
+        font-size: 18px; 
+    }
+
+    .nav-elements button img {
+        width: 70%;
+        height: 70%;
     }
 }

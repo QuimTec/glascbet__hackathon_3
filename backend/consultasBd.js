@@ -4,7 +4,7 @@ var tabelas = {
 
     // Inserir usuário
     addUsuario: function(obj, callback){  
-        return db.query("INSERT INTO usuarios (nome, email,cpf, senha) VALUES (?,?,?,?);",[obj.nome, obj.email,obj.cpf, obj.senha], callback)
+        return db.query("INSERT INTO usuarios (primeiroNome,sobrenome, email, apelido, cpf, senha, dataNascimento) VALUES (?,?,?,?,?,?,?);", [obj.primeiroNome,obj.sobrenome, obj.email, obj.apelido, obj.cpf, obj.senha, obj.dataNascimento], callback);
     },
 
     //Entrar no sistema
@@ -18,6 +18,16 @@ var tabelas = {
         });
     },
 
+    //Dados usuario
+    dadosUser: function(obj,callback){
+        return db.query("SELECT apelido,cpf,saldo,pontos FROM usuarios WHERE id_user = ?;", [obj], function(error, results) {
+            if (error) {
+                callback(error, null);
+            } else {
+                callback(null, results);
+            }
+        });
+    },
     //Inserir ou retirar dinheiro
     atualizarSaldo: function(obj, callback){  
         return db.query("UPDATE usuarios SET saldo = ? WHERE id_user = ?", [obj.saldo, obj.id_user], callback);
@@ -41,7 +51,7 @@ var tabelas = {
 
     //Inserir jogos
     addJogos: function(obj, callback){  
-        return db.query("INSERT INTO jogos (equipeA, equipeB, dia, horario,oddsA,oddsB) VALUES (?,?,?,?,?,?);",[obj.equipeA, obj.equipeB,obj.dia,obj.horario,obj.oddsA,obj.oddsB], callback)
+        return db.query("INSERT INTO jogos (equipeA, equipeB, diaJogo,oddsA,oddsB) VALUES (?,?,?,?,?);",[obj.equipeA, obj.equipeB,obj.diaJogo,obj.oddsA,obj.oddsB], callback)
     },
 
     //Encerrar jogos
@@ -53,7 +63,7 @@ var tabelas = {
 
     //Inserir apostas
     addAposta: function(id_user,obj, callback){  
-        return db.query("INSERT INTO apostas (id_jogo, id_user,equipe, data, hora,valor,odds) VALUES (?,?,?,?,?,?,?);",[obj.id_jogo, id_user,obj.equipe,obj.data,obj.hora,obj.valor,obj.odds], callback)
+        return db.query("INSERT INTO apostas (id_jogo, id_user,equipe,diaAposta,valor,odds) VALUES (?,?,?,?,?,?);",[obj.id_jogo, id_user,obj.equipe,obj.diaAposta,obj.valor,obj.odds], callback)
     },
 
     //Buscar apostas
