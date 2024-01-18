@@ -7,7 +7,7 @@ export default class ApostaModal {
       this.quantiaInput = this.modal.querySelector('#quantia');
       this.ganhoInput = this.modal.querySelector('#ganho');
       // this.openButtons = this.modal.getElementById('.time-btn');
-  
+
       this.setupEventListeners();
     }
   
@@ -24,7 +24,9 @@ export default class ApostaModal {
     }
   
     open() {
+
       this.modal.style.display = 'flex';
+
     }
   
     close() {
@@ -41,9 +43,10 @@ export default class ApostaModal {
   
     calculateGanho() {
       // Lógica para calcular o ganho com base na quantia e odd
-      const odd = 2.5; // Substitua pela odd correta
+     // Substitua pela odd correta
+
       const quantia = parseFloat(this.quantiaInput.value);
-      const ganho = quantia * odd || 0;
+      const ganho = quantia * this.odd || 0;
       this.ganhoInput.value = ganho.toFixed(2);
     }
 }

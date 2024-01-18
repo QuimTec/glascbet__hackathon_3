@@ -4,14 +4,16 @@ export const arrayData = [
         "teamname": "paiN Gaming",
         "wins": "26",
         "total_games": "36",
-        "win_percentage": "72.22222222222221"
+        "win_percentage": "72.22222222222221",
+        "odds": "2"
     },
     {
         "league": "CBLOL",
         "teamname": "LOUD",
         "wins": "25",
         "total_games": "36",
-        "win_percentage": "69.444444444444 44"
+        "win_percentage": "69.444444444444 44",
+        "odds": "3"
     },
     {
         "league": "CBLOL",

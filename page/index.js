@@ -116,12 +116,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${obj1.teamname} <span class="aposta__win-percentage">Vitórias ${obj1.win_percentage}%</span>
                 <p class="aposta__wins">Vitórias: ${obj1.wins}</p>
                 <p class="aposta__total-games">Total de Jogos: ${obj1.total_games}</p>
+                <p class="aposta__odds"> Odds: ${obj1.odds}</p>
               </button>
               <p class="vs">VS</p>
               <button class="time-btn" data-teamname="${obj2.teamname}" data-win-percentage="${obj2.win_percentage}" data-wins="${obj2.wins}" data-total-games="${obj2.total_games}">
                 ${obj2.teamname} <span class="aposta__win-percentage">Vitórias ${obj2.win_percentage}%</span>
                 <p class="aposta__wins">Vitórias: ${obj2.wins}</p>
                 <p class="aposta__total-games">Total de Jogos: ${obj2.total_games}</p>
+                <p class="aposta__odds"> Odds: ${obj2.odds}</p>
+
               </button>
             </div>
           </div>
@@ -135,4 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const obj2 = arrayData[i + 1];
   
         apostasContainer.innerHTML += createApostaCard(obj1, obj2);
+
       }
+      
