@@ -80,7 +80,7 @@ function createApostaCard(obj1, obj2) {
           </div>
         
         </button>
-        <p class="vs">VS</p>
+        <div class="vs">VS</div>
         <button class="time-btn" data-teamname="${obj2.teamname}" data-win-percentage="${obj2.win_percentage}" data-wins="${obj2.wins}" data-total-games="${obj2.total_games}">
           <div>
             ${obj2.teamname} <span class="aposta__win-percentage">Odds ${obj2.win_percentage.toFixed(2)}</span>

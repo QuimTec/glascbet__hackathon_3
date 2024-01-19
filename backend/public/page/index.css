@@ -14,3 +14,12 @@
     background-color: #010A13;
     min-height: 100vh;
 }
+
+
+
+  .aposta-options {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Define three columns with equal width */
+    align-items: center;                 /* Align VS elements vertically */
+  }
+
