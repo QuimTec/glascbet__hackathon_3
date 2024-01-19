@@ -1,16 +1,28 @@
+import DepositModal from '../components/depositoModal.js';
+
 export default class UserModal {
   constructor() {
     this.modal = document.getElementById('modalUser');
     this.profileBtn = document.getElementById('profileBtn');
     this.depositBtn = document.querySelector('.button__depositar');
     this.closeButton = document.querySelector('.close_user');
+    this.depositModal = new DepositModal;
 
     this.setupEventListeners();
   }
 
-  open() {
+  setApi(api) {
+    this.api = api;
+  }
+  
+
+  async open() {
     this.modal.style.display = 'flex';
-    // Adicione aqui a lógica para carregar os dados do usuário no modal
+    // lógica para carregar os dados do usuário no modal
+    this.userData = await this.api.getDadosUsuario();
+    if (this.userData) {
+      this.updateUserModal(this.userData);
+    }
   }
 
   close() {
@@ -22,10 +34,10 @@ export default class UserModal {
     this.closeButton.addEventListener('click', () => this.close());
     this.depositBtn.addEventListener('click', () => {
       this.close();
-      depositModal.open();
+      this.depositModal.open();
     });
 
-    // Adicionar evento para fechar o modal do usuário ao pressionar a tecla "Esc"
+    // evento para fechar o modal do usuário ao pressionar a tecla "Esc"
     window.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         this.close();
@@ -34,25 +46,16 @@ export default class UserModal {
     });
   }
 
-  static updateUserModal() {
-    // Lógica para carregar dados do usuário no modal
-    // ...
-
-    const apelidoInput = document.getElementById('apelido');
-    const cpfInput = document.getElementById('cpf');
-    // ...
-
-    // Simular dados do usuário (substitua com os dados reais do usuário)
-    const userData = {
-      apelido: 'SeuApelido',
-      cpf: '123.456.789-00',
-      saldoTotal: 1000,
-      saldoAcumulado: 500,
-    };
-
-    // Preencher os campos do modal do usuário
+   updateUserModal(userData) {
+    console.log(userData);
+    var apelidoInput = document.getElementById('apelido');
+    var cpfInput = document.getElementById('cpfModal');
+    var saldoInput = document.getElementById('saldoModal');
+    var pontosInput = document.getElementById('pontos');
+   
     apelidoInput.value = userData.apelido;
     cpfInput.value = userData.cpf;
-    // Outros campos do modal podem ser preenchidos da mesma maneira
+    saldoInput.value = userData.saldo;
+    pontosInput.value = userData.pontos;
   }
 }

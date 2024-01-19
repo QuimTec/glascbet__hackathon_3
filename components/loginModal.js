@@ -5,18 +5,36 @@ export default class LoginModal {
     this.modal = document.getElementById('modal');
     this.addEventListeners();
     this.checkAndShowModal();
+
   }
 
   checkAndShowModal() {
-    const hasLeftSite = sessionStorage.getItem('leftSite');
-    if (!hasLeftSite) {
+    const nomeDoCookie = this.getCookie('cookiedLogin');
+    console.log(nomeDoCookie); 
+    if (!nomeDoCookie) {
+       // O cookie não existe, então exiba o modal
       this.showModal();
-      sessionStorage.setItem('leftSite', true);
-    }
+    } else {
+        this.close();
+        //atualizarSaldo();
+      }
   }
 
   showModal() {
-    this.modal.style.display = 'flex';
+     
+      document.getElementById('modal').style.display = 'flex';
+     
+  }
+  
+  getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return null;
   }
 
   close() {
@@ -24,16 +42,36 @@ export default class LoginModal {
   }
 
   performLogin() {
-    const loginEmail = document.getElementById('loginEmail').value;
-    const loginPassword = document.getElementById('loginPassword').value;
+    
+    const email = document.getElementById('loginEmail').value;
+    const senha = document.getElementById('loginPassword').value;
 
-    if (loginEmail && loginPassword) {
-      console.log(`Usuário com o e-mail ${loginEmail} entrou no site.`);
-      this.close();
-      UserModal.updateUserModal();
-    } else {
-      alert('Preencha todos os campos do formulário de login.');
+    if (email.length<1 || senha.length<1) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+  }
+    var login = {   
+      email: email,
+      senha: senha
+  };
+  
+  var minhaRequisicao = new Request("http://localhost:3000/login");
+  fetch(minhaRequisicao,{
+    method: "POST",
+    headers:{
+        Accept: "application/json",
+        "Content-Type" : "application/json"
+    },
+    body: JSON.stringify(login)
+  }).then(response => {
+    if (response.status === 200) {
+        this.close(); // Chama a função close() se a resposta for 200
+        document.cookie = `cookiedLogin=${email}`;
+        //atualizarSaldo();
+        window.location.reload();
     }
+    return response.text();
+  })    
   }
 
   register() {
@@ -45,14 +83,31 @@ export default class LoginModal {
     const dob = document.getElementById('dob').value;
     const cpf = document.getElementById('cpf').value;
 
-    if (firstName && lastName && nickname && email && password && dob && cpf) {
-      console.log(`Novo usuário ${nickname} registrado.`);
-      this.close();
-      UserModal.updateUserModal();
-    } else {
-      alert('Preencha todos os campos do formulário de registro.');
-    }
+    if (firstName.length<1 || lastName.length<1 || nickname.length<1 || email.length<1 || password.length<1 || dob.length<1 || cpf.length<1) {
+      alert("Por favor, preencha todos os campos.");
+      return;
   }
+    var usuario = {
+        primeiroNome: firstName,
+        sobrenome: lastName,
+        email: email,
+        apelido: nickname,
+        cpf: cpf,
+        senha: password,
+        dataNascimento: dob
+    };
+var minhaRequisicao = new Request("http://localhost:3000/usuario");
+fetch(minhaRequisicao,{
+method: "POST",
+headers:{
+  Accept: "application/json",
+  "Content-Type" : "application/json"
+},
+body: JSON.stringify(usuario)
+}).then(response => response.text()).then(responseText => {
+alert("Resposta do back-end: " + responseText);
+})        
+}
 
   addEventListeners() {
     document.querySelector('.close').addEventListener('click', () => {

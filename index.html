@@ -150,6 +150,7 @@
             class="userImage"
           />
           <form class="user__form">
+            <div>Apelido</div>
             <input
               type="text"
               class="apelido"
@@ -157,23 +158,27 @@
               placeholder="Apelido"
               required
             />
+            <div>CPF</div>
             <input  
               type="text"
-              id="cpf"
+              class="cpf"
+              id="cpfModal"
               name="cpf"
-              placeholder="000.000.000-00"
-              />
+              placeholder="000.000.000-00" 
+            />
+            <div>Saldo (R$)</div>
             <input
               type="number"
-              class="saldo-total"
-              id="saldo-total"
+              class="saldo"
+              id="saldoModal"
               placeholder="Saldo Total"
               readonly
             />
+            <div>Pontos</div>
             <input
               type="number"
-              class="saldo-total"
-              id="saldo-acumulado"
+              class="pontos"
+              id="pontos"
               placeholder="Total acumulado"
               readonly
             />
@@ -200,7 +205,7 @@
             Solicitar Skin
           </button>
           <p class="aviso">
-            Solicite uma skin a partir de um saldo acumulado de R$500,00*
+            Solicite uma skin a partir de 500 pontos acumulados (Max. 5000)
           </p>
         </div>
       </div>
