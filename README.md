@@ -1,6 +1,6 @@
 # Glasc Bet
 
-Bem-vindo ao repositório do projeto **Glasc Bet**, desenvolvido pelo grupo Quimtec durante o hackathon no Bbotcamp da TripleTen.
+Bem-vindo ao repositório do projeto **Glasc Bet**, desenvolvido pelo grupo Quimtec durante o hackathon_3 do Bootcamp da TripleTen.
 
 ## Descrição do Projeto
 
