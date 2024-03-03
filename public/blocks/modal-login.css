@@ -1,0 +1,23 @@
+
+.modal-login{
+position: absolute;
+width: 666px;
+height: 974px;
+left: 370px;
+top: 213px;
+
+background: #010A13;
+box-shadow: 0px 4px 18px #5681B0;
+border-radius: 10px;
+}
+
+.claro{
+    position: absolute;
+    width: 319.34px;
+    height: 41px;
+    left: 175px;
+    top: 96px;
+}
+
+
+ 

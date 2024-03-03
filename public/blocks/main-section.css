@@ -1,0 +1,42 @@
+.main-section {
+    padding-top: 200px;
+    background: url("../images/background.png") center/cover; 
+    height: 100vh;
+    color: #EAF4F6;
+    text-align: center;
+    font-family: Inter;
+    background-attachment: fixed; 
+}
+.main__title{
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.currency-symbol{
+    margin-right: 0px;
+    font-weight: bold;
+    align-items: center;
+}
+
+.bets {
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flow;
+}
+
+
+.bets::-webkit-scrollbar {
+  width: 12px;
+}
+
+
+@media (max-width: 560px) {
+  .main-section {
+    padding-top: 200px;
+    font-size: 16px;
+  } 
+}

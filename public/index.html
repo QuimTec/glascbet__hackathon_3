@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./page/index.css" />
+    <title>Glasc Bet</title>
+  </head>
+  <body>
+    <section class="page">
+      <!--navbar-->
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./images/Logo__GlascBet.png" alt="Logo GlascBet" />
+        </div>
+        <div class="nav-elements">
+          <button class="button__money" id="moneyBtn">R$ <span id="wallet-value"></span></button>
+          <button class="button__profile" id="profileBtn">
+            <img src="./images/UserImage.png" alt="Perfil" />
+          </button>
+        </div>
+      </nav>
+      <!--main-section-->
+     <div class="main-section">
+      <!--Title-->
+      <h2 class="main__title">Bets</h2>
+      <!--Grid-->
+      <!-- Container onde os cards serão adicionados -->
+      <div id="bets-container" class="bets">
+        <!-- Os cards serão adicionados aqui dinamicamente -->
+      </div>
+
+    </div> 
+
+  
+      <!-- Modal de Login/Register -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <img class="image-align" src="./images/login-logo.svg" alt="Logo">
+          <div class="modal-title">
+            <button class="modal-button" data-page="register-form" onclick="switchPage('register-form')">Registre-se</button>        
+            <button class="modal-button" data-page="login-form" onclick="switchPage('login-form')">Login</button>
+          </div>
+          <div id="register-form" class="modal-form">                              
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First Name"
+            />
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name"
+              required
+            />
+            <input
+              type="text"
+              id="nickname"
+              name="nickname"
+              placeholder="Username"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+              required
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <input
+              type="date"
+              id="dob"
+              name="dob"
+              placeholder="Date of Birth"
+              required
+            />
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="000.000.000-00"
+              required
+            />
+            <button class="button" onclick="register()">Registrar</button>
+          </div>
+
+          <div id="login-form" class="modal-form">
+            <input
+              type="email"
+              id="loginEmail"
+              name="loginEmail"
+              placeholder="E-mail"
+              required
+            />
+            <input
+              type="password"
+              id="loginPassword"
+              name="loginPassword"
+              placeholder="Password"
+              required
+            />
+
+            <button class="button" onclick="performLogin()">Entrar</button>
+          </div>        
+
+          
+        </div>
+      </div>
+
+      <!-- Modal de Bet -->
+      <div id="modalBet" class="modal">
+        <div class="modal-content bet-modal">
+          <span class="close">&times;</span>
+          <h2 class="modal-title">Bet</h2>
+          <div class="modal-bet-content bet-data">
+            <section id="bet-mod-margin">
+              <p id="bet__type">Vencedor da Partida</p>
+              <p id="bet__league"></p>             
+            </section>
+            <section id="bet-mod-margin">              
+              <div style="display: flex; align-items: center;">
+                <img id="team-bet-modal" src="./images/Ellipse 347.svg" alt="Team logo">
+                <p id="teamname"></p>
+              </div> 
+              <p id="winPercentage">
+              </p>
+            </section>
+          </div>
+          <form class="bet__form">
+            <div class="modal-bet-content bet-data">
+              <section id="bet-mod-margin"> 
+                <img id="team-bet-modal" src="./images/Money-icon.svg" alt="Team logo">
+                <input type="number" class="amount" id="amount" placeholder="Bet Value" max="10000" required> 
+              </section>
+            </div>
+            
+            <div class="modal-bet-content bet-data">         
+              <section id="bet-mod-margin">  
+                <p class="bet-modal-green">Earnings</p>
+                <img id="team-bet-modal" src="./images/Money-icon.svg" alt="Team logo">
+                <input type="number" class="amount" id="earning" readonly />
+              </section>
+            </div>            
+          </form>
+          <div class="modal-bet-content bet-data">
+            <section id="bet-mod-margin">
+              <p id="bet__type">Your Total Money</p>
+              <p class="button__money" id="moneyBtn">$ <span id="wallet-bet"></span></p>            
+            </section>
+          </div>
+          <div class="modal-bet-content bet-data">
+            <section id="bet-mod-margin">
+              <p id="bet__type">Your Bet Value</p>
+              <p class="button__money" id="moneyBtn">$ <span id="bet-value"></span></p>            
+            </section>
+          </div>
+          <div class="button">
+            <button id="confirmarBet">
+              Confirm Bet
+            </button>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Modal do Usuário -->
+      <div id="modalUser" class="modal">
+        <div class="modal-content">
+          <span class="close close_user">&times;</span>
+          <img class="userImage image-align" src="./images/UserImage.png" alt="Foto do usuário"/>
+          <form class="modal-form input">
+            <div>Username</div>
+            <input
+              type="text"
+              class="userName"
+              id="userName"
+              placeholder="Username"
+              required
+            />
+            <div>CPF</div>
+            <input  
+              type="text"
+              class="cpf"
+              id="cpfModal"
+              name="cpf"
+              placeholder="000.000.000-00" 
+            />
+            <div>Saldo (R$)</div>
+            <input
+              type="number"
+              class="wallet"
+              id="walletModal"
+              placeholder="Total Money"
+              readonly
+            />
+            <div>Pontos</div>
+            <input
+              type="number"
+              class="points"
+              id="points"
+              placeholder="Total"
+              readonly
+            />
+            <input
+              type="text"
+              class="skins"
+              list="skins"
+              placeholder="Chose your skin"
+            />
+            <datalist id="skins">
+              <option value="Ahri">Florescer Espiritual - Ahri</option>
+              <option value="Thresh">Florescer Espiritual - Thresh</option>
+              <option value="Lilia">Florescer Espiritual - Lilia</option>
+              <option value="Yone">Florescer Espiritual - Yone</option>
+              <option value="Kindred">Florescer Espiritual - Kindred</option>
+              <option value="Soraka">Emissários da Luz - Soraka</option>
+              <option value="Yasuo">Emissários da Luz - Yasuo</option>
+              <option value="Riven">Emissários da Luz - Riven</option>
+            </datalist>
+            <button class="button button__deposit">Deposit</button>
+            <button class="button button__retirar">Cash Out $</button>
+            <button class="button button__solicitar" disabled>Solicitar Skin</button>
+          </form>
+          <p class="aviso">
+            Request a skin from min. 500 points (Max. 5000)
+          </p>
+        </div>
+      </div>
+
+      <!--Adicionei o modal depósito *Marina-->
+      <div id="depositModal" class="modal_deposito">
+        <div class="modal-deposit-content">
+          <span class="close" id="closeModalBtn">&times;</span>
+          <h2 class="modal-title">Deposit</h2>
+          <form id="depositForm">
+            <label for="depositAmount">Value:</label>
+            <input type="text" id="depositAmount" name="depositAmount" required>
+
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+              <option value="creditCard">Credit Card</option>
+            </select>
+
+            <button type="button" class="button" id="confirmDepositBtn">
+              Confirm Deposit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img
+            class="logo"
+            src="./images/Logo.svg"
+            alt="Logo"
+          />
+        <div class="copyrights">&#169; 2024 Quimtec. Todos os direitos reservados.</div>
+        <img class="footer_18" src="./images/icon__18.png">
+        <ul class="footer_avisos">
+            <li class="footer_avisos-termos ">
+              <a href="#" class="footer_avisos-termos-link">Termos de uso</a>
+            </li>
+            <li class="footer_avisos-termos ">
+              <a href="#" class="footer_avisos-termos-link">Aviso de privacidade</a>
+            </li>
+        </ul>
+      </footer>
+    </section>
+    <script type="module" src="./page/index.js"></script>
+
+  </body>
+</html>

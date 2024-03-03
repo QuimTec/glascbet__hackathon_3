@@ -1,0 +1,92 @@
+#bet-mod-margin{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    padding-inline: 10px;
+}
+
+#bet__type{
+    font-size: 15px;
+    text-transform: none;
+    color: #0397AB;
+}
+
+#winPercentage{
+    font-size: 15px;
+    text-transform: none;
+    color: #0397AB;
+}
+
+#teamname{
+    font-size: 15px;
+    text-transform: none;
+}
+
+#bet__league{
+    font-size: 15px;
+    text-transform: none;
+}
+
+.bet-modal{
+    left: 70%;
+    box-shadow: none;
+    top:45%;
+    width: max-content;
+}
+
+.modal-bet-content{
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #21272B;
+    border-radius: 7.55255px;
+    flex-direction: column;
+    margin:10px;
+}
+
+#team-bet-modal{
+    margin:10px
+}
+
+.bet__form{
+    margin-top: 10px;
+    display: flex;
+}
+
+.amount {
+    max-width: 70px;
+    font-size: 15px;
+}
+.earning {
+    max-width: 30px;
+    font-size: 15px;
+}
+
+.image-size{
+    margin: 12px;
+    display: block;
+}
+
+.bet-modal-green{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+color: #32FF46;
+text-transform: none;
+}
+
+.bet-data{
+    overflow: hidden;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+

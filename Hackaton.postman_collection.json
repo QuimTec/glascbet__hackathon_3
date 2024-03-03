@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "81bd0a3b-9125-4e9c-aa89-6f71eabb8c7a",
+		"name": "Hackaton",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31094688"
+	},
+	"item": [
+		{
+			"name": "Página inicial",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"felipe\",\r\n    \"lastName\": \"fracasso\",\r\n    \"email\": \"felipe@email.com\",\r\n    \"userName\": \"felipe123\",\r\n    \"cpf\": \"99965432101\",\r\n    \"passworld\": \"123456\",\r\n    \"dateOfBirth\": \"1990-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"email\": \"maria@email.com\",\r\n\r\n    \"passworld\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar wallet",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/user/updateWallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"updateWallet"
+					],
+					"query": [
+						{
+							"key": "Cookie",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Saldo usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "/wallet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"wallet"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realizar bet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id_match\": 3,\r\n  \"team\": \"paiN Gaming\",\r\n  \"matchDay\": \"2024-01-21 15:56:21\",\r\n  \"betDay\": \"2024-01-30 15:44:53\",\r\n  \"betAmount\": 4,\r\n  \"odds\": \"1.96\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/bet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encerrar e pagar bets",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_match\": \"1\",\r\n    \"winningTeam\": \"Time A\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/encerrarBet",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"encerrarBet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bets por usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "/minhasBets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"minhasBets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dados do usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dados dos matches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar match",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"league\": \"Liga A\",\r\n    \"teamA\": \"NomeEquipeA\",\r\n    \"teamB\": \"NomeEquipeB\",\r\n    \"matchDay\": \"2024-01-20\", // Substitua com a data desejada\r\n    \"oddsA\": 2.5, // Substitua com as odds da team A\r\n    \"oddsB\": 1.8 // Substitua com as odds da team B\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "/match",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"match"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

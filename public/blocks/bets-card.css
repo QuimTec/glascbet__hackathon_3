@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+.bet-card {
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  height:100px;
+}
+  
+.bet-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+    align-items: center;
+    flex: 0 0 1%;
+}
+
+.bet__type {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0397AB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+    align-items: center;
+    flex: 0 0 16%;
+}
+
+.bet__league {
+  color: #F7F7F7;
+  font-size: 18px;
+}
+
+.bet-options {
+  margin:5px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  flex: 0 0 30%;
+}
+
+.vs {
+  font-family: 'Russo One';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;  
+  display: flex;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+  
+.time-btn {
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;    
+    justify-content: space-between; 
+    cursor: pointer;
+    align-items: center;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 700;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+.team1-btn {
+  background-color: #A09B8C;
+}
+
+.team2-btn {
+  background-color: #0397AB;
+}
+
+
+#team-logo{
+  margin: 0;
+  display: block;
+}
+
+
