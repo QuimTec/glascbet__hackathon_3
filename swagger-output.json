@@ -16,7 +16,7 @@
         "tags": [
           "User"
         ],
-        "description": "Endpoint tvxzcvxcvxczvo get the specific user.",
+        "description": "Endpoint get the specific user.",
         "responses": {
           "200": {
             "description": "OK"
@@ -74,6 +74,16 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/logout": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

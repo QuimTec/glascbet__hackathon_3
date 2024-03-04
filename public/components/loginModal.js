@@ -61,12 +61,20 @@ export default class LoginModal {
     body: JSON.stringify(login)
   }).then(response => {
     if (response.status === 200) {
-        this.close(); // Chama a função close() se a resposta for 200
+        this.close(); 
         document.cookie = `cookiedLogin=${email}`;
         window.location.reload();
-    }
-    return response.text();
-  })    
+      } else {
+        return response.json();
+      }
+    })
+    .then(data => {
+
+      if (data && data.error) {
+        alert(data.error);
+      } 
+    })
+
   }
 
   register() {

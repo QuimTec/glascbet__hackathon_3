@@ -64,10 +64,7 @@ export default class UserModal {
   }
 
   async logOut() {
-    document.cookie = 'cookiedLogin=; path=/;';
     this.logOut = await this.api.logout();
-    
-
   }
 
 }

@@ -65,6 +65,7 @@ app.post('/login', (require, response) => {
 
 app.post('/logout', (req, res) => {
     res.clearCookie('token');
+    res.clearCookie('cookiedLogin');
     res.json({ message: 'Logout successful' });
 });
 
