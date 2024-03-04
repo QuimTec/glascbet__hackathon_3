@@ -1,13 +1,14 @@
 import DepositModal from './depositModal.js';
 
+
 export default class UserModal {
   constructor() {
     this.modal = document.getElementById('modalUser');
     this.profileBtn = document.getElementById('profileBtn');
     this.depositBtn = document.querySelector('.button__deposit');
     this.closeButton = document.querySelector('.close_user');
+    this.logOutBtn = document.querySelector('.button__logout');    
     this.depositModal = new DepositModal;
-
     this.setupEventListeners();
   }
 
@@ -32,6 +33,7 @@ export default class UserModal {
   setupEventListeners() {
     this.profileBtn.addEventListener('click', () => this.open());
     this.closeButton.addEventListener('click', () => this.close());
+    this.logOutBtn.addEventListener('click', () => this.logOut());
     this.depositBtn.addEventListener('click', (clickEvent) => {
       clickEvent.preventDefault();
       this.close();
@@ -59,6 +61,13 @@ export default class UserModal {
     walletInput.value = userData.wallet;
     pointsInput.value = userData.points;
    
+  }
+
+  async logOut() {
+    document.cookie = 'cookiedLogin=; path=/;';
+    this.logOut = await this.api.logout();
+    
+
   }
 
 }

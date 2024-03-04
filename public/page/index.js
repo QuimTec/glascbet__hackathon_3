@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   loginModal.checkAndShowModal();
   loginModal.switchPage('login-form');
-  
-  api.loadWallet();
+  if(loginModal.getCookie('cookiedLogin') != null){
+    api.loadWallet();
+  }
+
  
 
   betBtns.forEach((btn) => {
